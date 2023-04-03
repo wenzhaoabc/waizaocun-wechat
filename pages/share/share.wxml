@@ -1,0 +1,61 @@
+<!--pages/share/share.wxml-->
+
+<cu-custom bgColor="bg-gradual-green" isBack="{{true}}">
+  <view slot="backText" bindtap="tosquare">返回</view>
+  <view slot="content">分享时刻</view>
+</cu-custom>
+
+<!-- 修改上面ColorUI的组件 -->
+<!-- <view  style="background-color: #FFFFFF; font-size: 24px; height:40px;line-height: 40px;text-align: center; color:rgb(114, 113, 108);" >
+  <button bindtap="return" style="position: absolute;left: 0%;width:100px;height:40px;line-height:40px;font-size: 20px;background-color: #FFFFFF;padding: 0;color:rgb(114, 113, 108);">
+  返回
+  </button>
+  分享时刻
+</view> -->
+
+
+<view class="cu-bar bg-white search">
+  <view class="search-form round">
+    <text class="cuIcon-search"></text>
+    <input type="text" placeholder="搜索你感兴趣的内容" confirm-type="search" bindinput="searchIcon"></input>
+  </view>
+</view>
+<view class="grid col-2 margin-bottom text-center" wx:if="{{length!=0}}">
+    <block wx:for="{{share}}"  wx:key="index" >
+    <view class="" >
+    <view class="cu-card dynamic">
+      <view class="cu-item shadow">
+        <view class="grid flex-sub" bindtap="lookMore" data-index="{{index}}">
+          <view class="bg-img only-img" style="background-image:url({{item.img[0]}});width: 160px;height: 100px;">
+          </view>
+        </view>
+
+        
+        <view class="text-black over_ignore" style="margin-top: 5px;height:36px;">
+          {{item.content}}
+        </view>
+      
+        <view style="display: flex;margin-top: 5px;height: 24px;">
+          <view style="display: flex;width: 70%;">
+            <view class="cu-avatar sm round" style="background-image:url({{item.userImg}});"></view>
+            <view class="text-black" style="margin-left:10px;line-height: 24px;">{{item.userName}}</view>
+          </view>      
+          <view style="display: flex;width: 30%;line-height: 24px;" bindtap="love" data-index="{{index}}">
+            <text wx:if="{{item.isLove==false}}" class="cuIcon-appreciatefill margin-lr-xs text-grey"></text>
+            <text wx:if="{{item.isLove==true}}" class="cuIcon-appreciatefill margin-lr-xs text-red"></text>
+            <text class="text-black">{{item.loveNum}}</text>
+          </view>  
+        </view>
+      
+      </view>
+    </view>
+  </view>
+    </block> 
+</view>
+<view wx:else>
+暂无人分享哦，快来分享吧~
+</view>
+<view class="cu-item" bindtap="share_time">
+  <text id="share_add" class="cuIcon-roundadd lg text-gray"></text>
+</view>
+

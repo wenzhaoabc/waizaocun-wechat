@@ -1,0 +1,90 @@
+<!--pages/feedback/feedback.wxml-->
+
+<cu-custom bgColor="bg-gradual-green" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">反馈回答</view>
+</cu-custom>
+
+<!-- 修改为其上colorUI的组件形式-2022年10月3日20点15分 -->
+<!-- <view  style="background-color:#0081FF; font-size: 24px; height:40px;line-height: 40px;text-align: center; color:cornsilk;" >
+  <button bindtap="person" style="position: absolute;left: 0%;width:80px;font-size: 15px;background-color: #0081FF;">
+  返回
+  </button>
+  反馈回答
+</view> -->
+
+<block wx:for="{{my_feedback}}"  wx:key="index" >
+<view class="cu-bar bg-white solid-bottom margin-top">
+    <view class="action">
+      <text class="cuIcon-title text-grey ">{{item.name}}反馈</text> 
+    </view>
+    <view class="action">
+      <button class="cu-btn bg-green shadow" bindtap="close" style="width:80px;" wx:if="{{item.lookorun}}" data-index="{{index}}">收起</button>
+      <button class="cu-btn bg-green shadow" bindtap="open" style="width:80px;" wx:if="{{!item.lookorun}}" data-index="{{index}}">查看</button>
+    </view>
+</view>
+<view wx:if="{{item.lookorun}}">
+  <view style="background-color: rgb(218, 234, 245);width: 80%;margin:15px auto;">
+    <view class="cu-chat" wx:for="{{item.feedback}}"  wx:key="index">
+      <view class="cu-item self">
+        <view class="main">
+          <view class="content bg-green shadow">
+            <text>{{item.content}}</text>
+          </view>
+        </view>
+        <view class="date" style="text-align: center;">反馈时间：{{item.fd_time}}</view>
+      </view>
+      <view class="cu-item" wx:if="{{item.reply!=null}}">
+        <view class="main">
+          <view class="content shadow">
+            <text>回复：{{item.reply}}</text>
+          </view>
+        </view>
+      <view class="date " style="text-align: center;">回复时间： {{item.re_time}}</view>
+      </view>
+    </view>
+  </view>
+</view>
+</block>
+<!-- <view class="cu-bar bg-white solid-bottom margin-top">
+    <view class="action">
+      <text class="cuIcon-title text-grey ">公共空间治理反馈</text> 
+    </view>
+    <view class="action">
+      <button class="cu-btn bg-green shadow" bindtap="showfeedback" style="width:80px;">{{lookorun}}</button>
+    </view>
+</view>
+<view wx:if="{{my_feedback}}">
+  <view style="background-color: rgb(218, 234, 245);width: 80%;margin:15px auto;">
+    <view class="cu-chat" wx:for="{{feed_back}}"  wx:key="index">
+      <view class="cu-item self">
+        <view class="main">
+          <view class="content bg-green shadow">
+            <text>{{item.CONTENT}}</text>
+          </view>
+        </view>
+        <view class="date">{{item.FD_TIME}}</view>
+      </view>
+      <view class="cu-item" wx:if="{{item.REPLY!=null}}">
+        <view class="main">
+          <view class="content shadow">
+            <text>回复：{{item.REPLY}}</text>
+          </view>
+        </view>
+      <view class="date "> {{item.REPLY_TIME}}</view>
+      </view>
+    </view>
+  </view>
+</view> -->
+<!-- <view class="cu-bar bg-white solid-bottom" style="margin-top: 10px;">
+  <view class='action'>
+    <text class='cuIcon-title text-grey'>提交反馈</text> 
+  </view>
+</view>
+<view class="cu-form-group margin-top">
+	<textarea maxlength="-1" bindinput="get_feedback" value="{{feedback}}"></textarea>
+  </view>
+  <view class="cu-form-group">
+		<button class="cu-btn bg-green shadow my-center" bindtap="adviseget">提交</button>
+</view> -->
+

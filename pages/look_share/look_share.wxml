@@ -1,0 +1,73 @@
+<!--pages/look_share/look_share.wxml-->
+<cu-custom bgColor="bg-gradual-green" isBack="{{true}}">
+  <view slot="backText">返回
+  </view>
+  <view slot="content">
+    <view class="cu-avatar round" style="background-image:url({{share.userImg}});"></view>
+  {{share.userName}}</view>
+</cu-custom>
+<view id="square-top">
+    <swiper class='swiper' indicator-dots bindchange="getcurrent">
+      <block wx:for="{{img}}">
+        <swiper-item >
+          <image class='swiper-item' mode="widthFix" src="{{item}}" ></image>
+        </swiper-item>
+      </block>
+    </swiper>
+    <view style="margin-top:15px;font-size: 18px;color: black;" >
+    <text decode="true">&nbsp;&nbsp;{{share.content}} </text>
+    </view>
+    <view class="margin-top-sm flex justify-between">
+      <view class="text-gray text-df" >编辑于{{share.time}} {{share.place}}</view>
+      <view>
+        <text wx:if="{{share.isLove==false}}" class="cuIcon-appreciatefill text-grey" style="font-size: 20px;" bindtap="love"></text>
+            <text wx:if="{{share.isLove==true}}" class="cuIcon-appreciatefill text-red" style="font-size: 20px;" bindtap="love"></text>
+        <!-- <text class="text-gray text-df" style="font-size: 16px;">点赞</text> -->
+        <view style="width:50px;"></view>
+      </view>
+    </view>
+    <!-- <view style="margin-top:15px ;color: gray;">编辑于9-24 上海</view> -->
+    <!-- <view style="margin-top:10px ;margin-left: 10px; font-size: 20px; display: block;float: left;">
+      <text class="cuIcon-appreciatefill text-red"></text>
+    </view> -->
+    <view style="width: 100%;height: 3rpx; background-color: rgb(223, 215, 215); margin-top: 10px;"></view>
+    <view style="margin-top:15px;font-size: 16px;color: rgb(100, 99, 99);">共{{share.commentAmount}}条评论</view>
+    <view class="cu-card dynamic ">
+        <block wx:for="{{share.comment}}"  wx:key="index">
+            <view class="cu-item shadow" style="width: 100%;margin-left: 0;background-color: var(--ghostWhite)">
+        <view class="cu-list menu-avatar comment solids-top">
+          <view class="cu-item" style="background-color: var(--ghostWhite)">
+            <view class="cu-avatar round" style="background-image:url({{item.userImg}});"></view>
+            <view class="content">
+              <view class="text-grey">{{item.userName}}</view>
+              <view class="text-black text-content text-df">
+            {{item.content}}
+              </view>
+              <view class="margin-top-sm flex justify-between">
+                <view class="text-gray text-df">{{item.time}} {{item.place}}</view>
+                <view>
+                    <text wx:if="{{item.isLove==false}}" class="cuIcon-appreciatefill text-grey" style="font-size: 18px;" bindtap="comment_love" data-index="{{index}}" ></text>
+                    <text wx:if="{{item.isLove==true}}" class="cuIcon-appreciatefill text-red" style="font-size: 18px;" bindtap="comment_love" data-index="{{index}}" ></text>
+                  <!-- <text class="cuIcon-messagefill text-gray margin-left-sm" style="font-size: 18px;"></text> -->
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </block>
+    </view>
+    <view style="height: 20px;">
+    </view>
+</view>
+<view class="cu-bar foot input">
+  <view class="action">
+    <text class="cuIcon-write text-grey"></text>
+  </view>
+  <input class="solid-bottom" adjust-position="{{false}}" focus="{{false}}" maxlength="300" cursor-spacing="10" value="{{content}}" bindinput="getInputVal" placeholder="说点什么..."></input>
+  <!-- <view class="action">
+    <text class="cuIcon-emojifill text-grey"></text>
+  </view> -->
+  <button class="cu-btn bg-green shadow" bindtap="send">发布</button>
+</view>
+

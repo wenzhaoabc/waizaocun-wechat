@@ -1,0 +1,54 @@
+/* pages/square/square.wxss */
+#square-top{
+  height: 400rpx;
+  /* /background-color: ; */
+}
+@font-face {
+  font-family: 'iconfont';  /* Project id 3670885 */
+  src: url('//at.alicdn.com/t/c/font_3670885_qthviuzkin.woff2?t=1664094894813') format('woff2'),
+       url('//at.alicdn.com/t/c/font_3670885_qthviuzkin.woff?t=1664094894813') format('woff'),
+       url('//at.alicdn.com/t/c/font_3670885_qthviuzkin.ttf?t=1664094894813') format('truetype');
+}
+.event{
+  top: 100px; 
+  left:50px;
+  background: ivory;
+  position: absolute;
+  text-align: center;
+  border: 3rpx solid #faca82;
+  border-radius: 10rpx;
+  height: 250px;
+  /* padding: 10rpx; */
+}
+.l{
+  position: absolute;
+  left: 10px;
+}
+.r{
+  position: absolute;
+  right:10px;
+}
+
+.iconfont{
+  font-family: 'iconfont';
+  color: red;
+  font-size: 30px;
+}
+
+.icon-sun::before{
+  content: '\e635';
+}
+
+.icon-like::before{
+  content: '\e8ad';
+}
+
+.swiper{
+  height: 100%;
+  position: relative;
+}
+.swiper-item{
+  width:100%;
+  height: 100%;
+  position: relative;
+}

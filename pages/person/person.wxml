@@ -1,0 +1,42 @@
+<!--pages/person/person.wxml-->
+<scroll-view scroll-y class="scrollPage">
+  <view class="UCenter-bg mybgcolor">
+    <image src="{{avatarUrl}}" class="png" mode="widthFix"></image>
+    <view wx:if="{{nickName}}">
+      {{nickName}}
+    </view>
+    <view wx:else>尚未授权登录</view>
+  </view>
+  <view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg radius">
+    <view class="cu-item arrow">
+      <view class="content" bindtap="feedback">
+        <!-- <text class="cuIcon-github text-grey"></text> -->
+        <text class="text-grey">反馈回答</text>
+      </view>
+    </view>
+    <view wx:if="{{dot_amount!=0}}" class="cu-item">
+      <view class="content" bindtap="notice" >
+        <!-- <text class="cuIcon-github text-grey"></text> -->
+        <view>
+          <text class="text-grey">通知</text>
+          <view wx:if="{{dot_amount!=0}}" class="red_dot">{{dot_amount}}
+          </view>
+        </view>       
+      </view>
+    </view>
+    <view wx:if="{{dot_amount==0}}" class="cu-item arrow">
+      <view class="content" bindtap="notice" >
+        <view>
+          <text class="text-grey">通知</text>
+        </view>       
+      </view>
+    </view>
+    <view class="cu-item arrow">
+      <view class="content" bindtap="setting">
+        <!-- <text class="cuIcon-github text-grey"></text> -->
+        <text class="text-grey">设置</text>
+      </view>
+    </view>
+  </view>
+  <view class="cu-tabbar-height"></view>
+</scroll-view>

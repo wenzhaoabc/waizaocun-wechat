@@ -33,6 +33,8 @@ App({
     // 以下是使用colorUI自定义导航栏需要的数据
     StatusBar: null,
     Custom: null,
-    CustomBar: null
+    CustomBar: null,
+    path:'http://localhost:5000/',
+    currentShareId:0
   }
 })
