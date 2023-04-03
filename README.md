@@ -8,6 +8,7 @@
 
 ## 目录结构
 
+```text
 │  .eslintrc.js                     # eslint配置文件
 │  .gitignore                       # git文件忽略配置
 │  app.js                           # 入口
@@ -48,6 +49,7 @@
 └─utils                             # js工具类
         http.js                     # 网络请求
         util.js                     # 日期格式化等
+```
 
 ## 注意事项
 
