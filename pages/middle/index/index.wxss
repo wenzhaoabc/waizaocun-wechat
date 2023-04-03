@@ -1,0 +1,154 @@
+.map {
+  width: 100%;
+  height: 98vh;
+}
+
+.map-container {
+  position: absolute;
+  /* flex: 1; */
+  overflow: hidden;
+  /* margin-top: 10px; */
+  width: 100%;
+}
+
+.map-content {
+  /* position: absolute; */
+  z-index: 1;
+  width: 100%;
+  opacity: 0;
+  height: 100%;
+}
+
+.map-content-show {
+  display: flex;
+  flex-direction: column;
+  opacity: 1;
+  z-index: 2;
+  transition: 0.3s;
+}
+
+.control-btn {
+  position: absolute;
+  height: 40px;
+  width: 40px;
+  z-index: 1;
+  background: #FFF;
+  line-height: 35px;
+  font-size: 30px;
+  text-align: center;
+  border-radius: 4px;
+  right: 10px;
+}
+
+.control-btn-increase {
+  top: 500rpx;
+  position:absolute;
+  z-index: 1;
+}
+
+.control-btn-decrease {
+  top: 600rpx;
+  position: absolute;
+  z-index: 1;
+}
+
+.control-btn-mapform {
+  top: 200rpx;
+  z-index: 1;
+}
+
+.float-bottom{
+  position:absolute;
+  z-index: 2;
+  width: 100%;
+  height: 382rpx;
+  
+  bottom: 0;
+}
+
+.search-box{
+  background-image: -webkit-linear-gradient(top, rgba(232, 234, 236, 0.001) 0%,#e3e6eb 60%, #fff 100%);
+}
+
+.btn-row{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  background-color: #fff;
+}
+
+.btn-icon{
+  background-color: #55bb8a;
+  border-radius: 25rpx;
+  margin-bottom: 30rpx;
+}
+
+.btn-icon image{
+  width: 65rpx;
+  height: 65rpx;
+  margin: 20rpx;
+}
+
+.btn-item{
+  text-align: center;
+}
+
+.btn-text{
+  font-size: larger;
+}
+
+
+
+.search{
+  position: absolute;
+  height: 80vh;
+  bottom: 0vh;
+  background-color: #fff;
+  width: 100%;
+  border-radius: 40rpx 40rpx 0 0;
+  z-index: 2;
+}
+
+.search input{
+  /* text-align: center; */
+  border: 1px solid #ccc;
+  border-radius:20rpx ;
+  height: 90rpx;
+  width: 500rpx;
+  margin-top: 40rpx;
+  margin-left: 50rpx;
+  font-size: 35rpx;
+  padding-left: 10rpx;
+}
+
+/* 垂直居中 */
+.tb-center-flex{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-icon{
+  position: absolute;
+  left: 485rpx;
+  font-size: 80rpx;
+  top: 34rpx;
+}
+
+.search-text{
+  position: absolute;
+  left: 600rpx;
+  top: 56rpx;
+  font-size: 40rpx;
+  color: #55bb8a;
+}
+
+.sitedetail{
+  position: absolute;
+  height: 80vh;
+  bottom: 0vh;
+  background-color: #fff;
+  width: 100%;
+  border-radius: 40rpx 40rpx 0 0;
+  z-index: 3;
+}

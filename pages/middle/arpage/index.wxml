@@ -1,0 +1,11 @@
+<!-- 展示AR页面 -->
+<view>
+    <xr-ar
+        modelurl="{{modelurl}}"
+        disable-scroll 
+        id="main-frame" 
+        width="{{renderWidth}}" 
+        height="{{renderHeight}}" 
+        style="width:{{width}}px;height:{{height}}px;" 
+        />
+</view>

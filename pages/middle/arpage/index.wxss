@@ -1,0 +1,13 @@
+/* pages/arpage/index.wxss */
+
+.view_list{
+    width: 100%;
+    height: 200rpx;
+    text-align: center;
+    display: flex;
+}
+
+.mypic{
+    width: 200rpx;
+    height: 200rpx;
+}

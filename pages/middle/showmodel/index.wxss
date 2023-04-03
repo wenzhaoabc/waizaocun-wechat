@@ -1,0 +1,10 @@
+/* pages/showmodel/index.wxss */
+.model{
+    position: absolute;
+    z-index: 1;
+}
+.return-btn{
+    position:absolute;
+    bottom: 10vh;
+    z-index: 10;
+}

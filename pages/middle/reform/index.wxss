@@ -1,0 +1,121 @@
+/* pages/reform/reform.wxss */
+
+.ds-element {
+    font-size: 75rpx;
+    display: inline-block;
+    width: 200rpx;
+    text-align: center;
+}
+
+.bottom-choice {
+    position: absolute;
+    bottom: 130rpx;
+    width: 100%;
+}
+
+.ds-element-type {
+    display: inline-block;
+    text-align: center;
+}
+
+.element-type{
+    width: 200rpx;
+    height: 200rpx;
+    border-radius:10rpx ;
+}
+
+.element-type-tag{
+    font-size: 50rpx;
+    line-height: 50rpx;
+   text-align: right;
+    color: green;
+}
+
+.img-container{
+    width: 100%;
+    height: 600rpx;
+}
+
+.types{
+    position:relative;
+    bottom: 20px;
+}
+
+
+
+
+.icon-key{
+    color: white;
+    font-size: x-large;
+}
+
+.black-bgc{
+    background-color: #000;
+}
+
+.white-bgc{
+    background-color: #fff;
+}
+
+.white-text{
+    color: white;
+}
+
+.black-text{
+    color: black;
+}
+
+.gloden-text{
+    color: #FF8C00;
+}
+
+.gloden-text:active{
+    color: honeydew;
+}
+
+.element-icon{
+    color: hotpink;
+}
+
+.element-icon:any-link{
+    color: lightslategrey;
+}
+.element-icon:checked{
+    color: lightslategrey;
+}
+
+.element-icon:hover{
+    color: orange;
+}
+
+.near-bottom{
+    /* position: fixed; */
+    position: absolute;
+    bottom: 150rpx;
+    width: 100%;
+    z-index: 2;
+}
+
+.ar-model{
+    position: relative;
+    width: 200rpx;
+    height: 200rpx;
+}
+
+.model-image{
+    position: relative;
+    width: 200rpx;
+    height: 200rpx;
+    padding: 10rpx;
+    border-radius: 10rpx;
+}
+.model-img-selected{
+    color: greenyellow;
+    position: absolute;
+    width: 200rpx;
+    height: 200rpx;
+    line-height: 200rpx;
+    border-radius: 10rpx;
+    top: 0%;
+    margin: 0 10rpx;
+}

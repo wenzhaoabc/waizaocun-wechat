@@ -1,0 +1,62 @@
+/* pages/design_submit/design_submit.wxss */
+
+.image-container {
+    display: flex;
+    justify-content: center;
+    height: 200rpx;
+    align-items: flex-end;
+}
+
+.image-container image {
+    width: 100rpx;
+    height: 100rpx;
+}
+
+
+
+
+.reason_txt {
+    font-size: 32rpx;
+    color: #333333;
+    display: table;
+    width: auto;
+    white-space: nowrap;
+    border-spacing: 0.5rem 0;
+}
+
+.reason_txt::before,
+.reason_txt::after {
+    display: table-cell;
+    content: "";
+    width: 50%;
+    background: linear-gradient(#D8D8D8, #D8D8D8) repeat-x center;
+    background-size: 0.1rem 0.1rem;
+}
+
+.recommend-list {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.recommendContainer {
+    width: 330rpx;
+    height: 510rpx;
+    border-radius: 10rpx;
+    background-color: #fff;
+    margin-bottom: 20rpx;
+}
+
+.recommendContainer image {
+    width: 330rpx;
+    height: 400rpx;
+    border-radius: 10rpx 10rpx 0 0;
+}
+
+.recommendContainer .textwidth {
+    width: 330rpx;
+    overflow: hidden;
+    white-space: nowrap;
+}

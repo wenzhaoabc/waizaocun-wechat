@@ -1,0 +1,40 @@
+<!-- 展示3维图形 -->
+<xr-scene
+    bind:ready="handleReady">
+    <xr-assets>
+        <xr-asset-load
+            type="gltf"
+            asset-id="model-showed"
+            src="{{modelURL}}"
+            />
+    </xr-assets>
+    
+    <!-- 环境 -->
+    <xr-env env-data="gz-haixinsha"/>
+    <!-- 光源 -->
+    <xr-light
+        type="ambient"
+        color="1 1 1"
+        intensity="1"
+     />
+     <!-- rotation 旋转 -->
+     <xr-light
+        type="directional"
+        rotation="40 70 0"
+        color="1 1 1"
+        intensity="3"
+        cast-shadow
+        />
+
+    <xr-gltf 
+        node-id="model-showed"
+        model="model-showed"
+        id="helmet"
+        />
+    <xr-camera 
+        position="0 1.5 5"
+        target="model-showed"
+        background="skybox"
+        clear-color="0.4 0.8 0.6 1"
+        camera-orbit-control />
+</xr-scene>

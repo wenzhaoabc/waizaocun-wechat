@@ -1,0 +1,31 @@
+{
+    "keyframe": {
+        "model-showed": {
+            "0": {
+                "rotation": [
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "50":{
+                "rotation":[0, 1.57, 0 ]
+            },
+            "100": {
+                "rotation": [
+                    0,
+                    6.28,
+                    0
+                ]
+            }
+        }
+    },
+    "animation": {
+        "model-showed": {
+            "keyframe": "model-showed",
+            "duration": 8,
+            "ease": "linear",
+            "loop": -1
+        }
+    }
+}

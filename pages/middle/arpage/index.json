@@ -1,0 +1,5 @@
+{
+    "usingComponents": {
+        "xr-ar": "../../../components/xr-ar/index"
+    }
+}

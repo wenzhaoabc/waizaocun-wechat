@@ -1,0 +1,64 @@
+{
+  "pages": [
+    "pages/home/index/index",
+
+    "pages/middle/index/index",
+    "pages/middle/addsite/index",
+    "pages/middle/reform/index",
+    "pages/middle/arpage/index",
+    "pages/middle/savedraft/index",
+    "pages/middle/share/index",
+    "pages/middle/showmodel/index",
+
+    "pages/user/index/index",
+
+    "pages/login/index",
+    "custom-tab-bar/index"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "外灶村",
+    "navigationBarTextStyle": "black",
+    "navigationStyle": "custom"
+  },
+  "usingComponents": {
+    "cu-custom": "colorui/components/cu-custom/cu-custom"
+  },
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents",
+  "tabBar": {
+    "backgroundColor": "#fff",
+    "color": "#333",
+    "selectedColor": "#fca89d",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/home/index/index",
+        "text": "首页",
+        "iconPath": "images/home.png",
+        "selectedIconPath": "images/home-selected.png"
+      },
+      {
+        "pagePath": "pages/middle/index/index",
+        "text": "改造",
+        "iconPath": "images/middle.png",
+        "selectedIconPath": "images/middle-selected.png"
+      },
+      {
+        "pagePath": "pages/user/index/index",
+        "text": "我的",
+        "iconPath": "images/user.png",
+        "selectedIconPath": "images/user-selected.png"
+      }
+    ]
+  },
+  "requiredPrivateInfos": [
+    "getLocation"
+  ],
+  "permission": {
+    "scope.userLocation": {
+      "desc": "位置信息将用于定位周围点位"
+    }
+  }
+}

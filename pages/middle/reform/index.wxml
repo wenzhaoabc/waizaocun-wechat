@@ -1,0 +1,109 @@
+<!--pages/reform/reform.wxml-->
+
+<cu-custom bgColor="bg-gradual-green" isBack="{{true}}">
+    <view class="white-text" slot="backText">返回</view>
+    <view class="white-text" slot="content">点位改造</view>
+</cu-custom>
+<view style="background-color: black; height: 100vh;">
+    <view class="padding flex flex-wrap align-center justify-between black-bgc">
+        <text class="text-xl white-text">{{siteinfo.title}}</text>
+        <text class="text-xl gloden-text" bindtap="saveDraft">保存</text>
+    </view>
+
+
+    <view class="padding img-container black-bgc">
+        <image style="width: 100%;height: 520rpx;" src="{{siteinfo.imgurl}}">
+        </image>
+    </view>
+
+    <view class="flex  justify-between icon-key black-bgc white-text">
+        <text class="cuIcon-repeal  margin-left" style="transform:rotate(90deg)" bindtap="onBackOut"></text>
+        <text class="cuIcon-read  margin-right" bindtap="onShowOrigin"></text>
+    </view>
+
+    <block wx:if="{{!showTypes}}">
+        <view
+            wx:if="{{currentModuleIndex==0}}" 
+            class="padding margin-top black-bgc white-text">
+            <scroll-view scroll-x="true" style="width: 100%; white-space: nowrap;">
+                <view wx:for="{{elements}}" 
+                    wx:key="index" 
+                    class="ds-element">
+                    <view class="element-icon" 
+                        bindtap="changeElement" 
+                        data-index="{{index}}">
+                        <text class="cuIcon-{{item.icon}} "></text>
+                    </view>
+                    <text class="text-xl gloden-text">{{item.title}}</text>
+                </view>
+            </scroll-view>
+        </view>
+
+        <view wx:if="{{currentModuleIndex==1}}"
+            class="padding margin-top black-bgc white-text">
+            <scroll-view scroll-x="true" style="width: 100%; white-space: nowrap;">
+                <view wx:for="{{models}}" wx:key="index" class="ds-element">
+                    <view class="round text-center ar-model"
+                        data-index="{{index}}">
+                        <image src="{{item.url}}"
+                            class="model-image"
+                            style="{{(selectedARModel.id==item.id)?'filter: blur(2px);':''}} "
+                            data-model="{{item}}"
+                            bindtap="selectARModel" />
+                        <view wx:if="{{selectedARModel.id === item.id}}"
+                            class="model-img-selected">
+                            ✔
+                        </view>
+                    </view>
+                    <text class="text-xl gloden-text">{{item.name}}</text>
+                </view>
+            </scroll-view>
+        </view>
+
+        <view class="bottom-choice black-bgc white-text">
+            <view class="grid col-{{modules.length}}  text-center text-xxl">
+                <view 
+                    class="{{currentModuleIndex==index?'gloden-text':'gray'}} padding" 
+                    wx:for="{{modules}}" wx:key="id" 
+                    bindtap="exchangeModule" 
+                    data-index="{{index}}">
+                        {{item.title}}
+                    </view>
+            </view>
+        </view>
+    </block>
+
+    <block wx:if="{{showTypes}}">
+        <view class="near-bottom">
+            <view class="margin-bottom black-bgc white-text">
+                <scroll-view scroll-x="true" style="width: 100%; white-space: nowrap;">
+                    <view wx:for="{{currentElement.types}}" 
+                        wx:key="index" 
+                        class="ds-element-type">
+                        <view 
+                            class="bg-img element-type margin {{currentType.id==item.id?'element-type-tag':''}}" 
+                            style="background-image:url({{item.url}});" 
+                            bindtap="changeType"
+                            data-index="{{index}}"
+                            data-typeId="{{item.id}}"
+                            bindlongpress="show3DModel">
+                            <text wx:if="{{currentType.id==item.id}}" class="cuIcon-check "></text>
+                            </view>
+                        <text>{{item.title}}</text>
+                    </view>
+                </scroll-view>
+            </view>
+            <view class=" flex padding justify-around black-bgc white-text" 
+                style="font-size: x-large; margin-top: 40rpx; ">
+                <text class="cuIcon-close  margin-left" 
+                    bindtap="finishType" 
+                    data-info="false">
+                </text>
+                <text class="cuIcon-check  margin-right-lg" 
+                    bindtap="finishType" 
+                    data-info="true">
+                </text>
+            </view>
+        </view>
+    </block>
+</view>

@@ -1,0 +1,6 @@
+{
+    "usingComponents": {
+      "xr-model":  "../../../components/xr-model/index"
+    },
+    "disableScroll": true
+}

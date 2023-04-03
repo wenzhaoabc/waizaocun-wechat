@@ -1,0 +1,34 @@
+<!--pages/design_submit/design_submit.wxml-->
+<cu-custom bgColor="bg-gradual-green" isBack="{{true}}">
+    <view slot="backText">返回</view>
+    <view slot="content">外灶村</view>
+</cu-custom>
+
+<view>
+    <view class="image-container">
+        <image src="../../../images/middle/submitsuccess.png"></image>
+    </view>
+    <view class="margin text-center" >
+        <text class="">提交成功</text>
+        <view class="text-xxl margin-tb text-green">
+            <!-- <text decode="{{true}}" bindtap="checkDetail">查看详情&nbsp;</text> -->
+            <!-- <text decode="{{true}}" bindtap="shareDesign">分享到公共空间</text> -->
+            <button class="cu-btn text-xl round bg-green" bindtap="shareDesign">分享到公共空间</button>
+        </view>
+    </view>
+    <view>
+        <view>
+            <text class='reason_txt margin'>猜你喜欢</text>
+        </view>
+    </view>
+
+    <view class="recommend-list">
+        <view wx:for="{{recommendSitesList}}" class="recommendContainer">
+            <image src="{{item.imgurl}}" mode="aspectFill"></image>
+            <view class="margin-lr-xs">
+                <text class="text-xl textwidth">{{item.title}}</text>
+                <view><text class="cuIcon-people margin-tb-xs textwidth">{{item.publisher}}</text></view>
+            </view>
+        </view>
+    </view>
+</view>
