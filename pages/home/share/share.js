@@ -51,7 +51,7 @@ Page({
     },
     tosquare(e){
         wx.switchTab({
-            url: '../../pages/square/square'
+            url: '../../home/square/square'
           })
     },
     love(e){
@@ -113,7 +113,7 @@ Page({
       app.globalData.currentShareId=this.data.share[e.currentTarget.dataset.index].shareId
       console.log(app.globalData.currentShareId)
       wx.navigateTo({
-        url: '../../pages/look_share/look_share'
+        url: '../look_share/look_share'
       })  
     },
     /**

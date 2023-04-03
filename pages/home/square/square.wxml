@@ -14,13 +14,13 @@
   </view>
   <view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg radius">
     <view class="cu-item arrow">
-      <navigator class="content" url="/pages/news/news" hover-class="none">
+      <navigator class="content" url="/pages/home/news/news" hover-class="none">
         <text class="cuIcon-news text-orange"></text>
         <text class="text-grey">外灶要闻</text>
       </navigator>
     </view>
     <view class="cu-item arrow">
-      <navigator class="content" url="/pages/notice/notice" hover-class="none">
+      <navigator class="content" url="/pages/home/notice/notice" hover-class="none">
         <text class="cuIcon-formfill text-green"></text>
         <text class="text-grey">通知公告</text>
       </navigator>
@@ -32,7 +32,7 @@
       </button>
     </view>
     <view class="cu-item arrow">
-      <navigator class="content" url="/pages/share/share" hover-class="none">
+      <navigator class="content" url="/pages/home/share/share" hover-class="none">
         <text class="cuIcon-creativefill text-orange"></text>
         <text class="text-grey">分享时刻</text>
       </navigator>

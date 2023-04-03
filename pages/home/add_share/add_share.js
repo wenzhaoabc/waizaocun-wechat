@@ -95,7 +95,7 @@ Page({
       //    }
       // })
       wx.navigateTo({
-          url: '../../pages/share/share?share='+JSON.stringify(share)
+          url: '../../home/share/share?share='+JSON.stringify(share)
         })
       wx.showModal({
         content:"发布成功",

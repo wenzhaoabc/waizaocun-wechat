@@ -16,7 +16,7 @@ Page({
   },
   notice(e){
     wx.navigateTo({
-      url: '../../pages/notice/notice'
+      url: '../../home/notice/notice'
     })
   },
   q_f(e){

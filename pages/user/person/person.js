@@ -12,17 +12,17 @@ Page({
   },
   feedback(e){
     wx.navigateTo({
-      url: '../../pages/feedback/feedback'
+      url: '../../user/feedback/feedback'
     })
   },
   notice(e){
     wx.navigateTo({
-      url: '../../pages/notice/notice'
+      url: '../../home/notice/notice'
     })
   },
   setting(e){
     wx.navigateTo({
-      url: '../../pages/setting/setting'
+      url: '../../user/setting/setting'
     })
   },
   /**

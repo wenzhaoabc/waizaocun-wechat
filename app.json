@@ -1,8 +1,8 @@
 {
   "pages": [
-    "pages/square/square",
+    "pages/home/square/square",
     "pages/middle/index/index",
-    "pages/person/person",
+    "pages/user/person/person",
     "pages/middle/addsite/index",
     "pages/middle/reform/index",
     "pages/middle/arpage/index",
@@ -12,13 +12,13 @@
     "pages/user/index/index",
     "pages/login/index",
     "custom-tab-bar/index",
-    "pages/feedback/feedback",
-    "pages/add_share/add_share",
-    "pages/news/news",
-    "pages/notice/notice",
-    "pages/share/share",
-    "pages/setting/setting",
-    "pages/look_share/look_share"
+    "pages/user/feedback/feedback",
+    "pages/home/add_share/add_share",
+    "pages/home/news/news",
+    "pages/home/notice/notice",
+    "pages/home/share/share",
+    "pages/user/setting/setting",
+    "pages/home/look_share/look_share"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -39,7 +39,7 @@
     "borderStyle": "white",
     "list": [
       {
-        "pagePath": "pages/square/square",
+        "pagePath": "pages/home/square/square",
         "text": "广场",
         "iconPath": "images/home.png",
         "selectedIconPath": "images/home-selected.png"
@@ -51,7 +51,7 @@
         "selectedIconPath": "images/middle-selected.png"
       },
       {
-        "pagePath": "pages/person/person",
+        "pagePath": "pages/user/person/person",
         "text": "我的",
         "iconPath": "images/user.png",
         "selectedIconPath": "images/user-selected.png"
