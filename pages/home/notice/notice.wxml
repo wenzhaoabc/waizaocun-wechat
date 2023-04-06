@@ -1,0 +1,43 @@
+<!--pages/notice/notice.wxml-->
+
+<cu-custom bgColor="bg-gradual-green" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">通知</view>
+</cu-custom>
+
+<!-- 修改为其上colorUI的组件形式-2022年10月3日20点11分 -->
+<!-- <view  style="background-color: #39B54A; font-size: 24px; height:40px;line-height: 40px;text-align: center; color:cornsilk;" >
+  <button bindtap="person" style="position: absolute;left: 0%;width:80px;font-size: 15px;background-color: #39B54A;">
+  返回
+  </button>
+  通知
+</view> -->
+
+
+
+
+<view class="cu-timeline">
+  <block wx:for="{{notice}}"  wx:key="index" >
+    <view class="cu-item text-green">
+    <view class="bg-gradual-green content shadow">
+      <view class="cu-capsule radius">
+        <view class="cu-tag line-white">{{item.publishTime}}</view>
+        <view class="cu-tag bg-white text-green">{{item.publisher}}</view>
+      </view>
+      <view class="margin-top-sm text-content">
+        <text decode="true">
+            &nbsp;&nbsp;{{item.content}}
+        </text>
+      </view>
+      <view class="margin-tb-sm text-center">
+        <block wx:if="{{item.state=='0'}}">
+          <button class="cu-btn round bg-white" style="color:green" data-index="{{index}}" bindtap="confirm_info">确认消息</button>
+        </block>
+        <block wx:else>
+          <button class="cu-btn round bg-white" style="color:grey">已确认</button>
+        </block>
+      </view>
+    </view>   
+    </view>
+</block>
+</view>

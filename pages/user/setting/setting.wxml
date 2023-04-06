@@ -1,0 +1,47 @@
+<!--pages/setting/setting.wxml-->
+<cu-custom bgColor="bg-gradual-green" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">设置</view>
+</cu-custom>
+
+<!-- 修改为其上colorUI的组件形式-2022年10月3日20点16分 -->
+<!-- <view  style="background-color:#8799A3; font-size: 24px; height:40px;line-height: 40px;text-align: center; color:cornsilk;" >
+  <button bindtap="person" style="position: absolute;left: 0%;width:80px;font-size: 15px;background-color: #8799A3;">
+  返回
+  </button>
+  设置
+</view> -->
+
+
+<view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg radius">
+    <view class="cu-item">
+      <view class="content" bindtap="feedback">
+        <view class="title" style="display: inline-block;">字体大小</view>
+		    <picker style="float:right;" bindchange="update_fontsize" value="{{current_font_size}}" range="{{font_size}}">
+			    <view class="picker text-center">
+				    {{font_size[current_font_size]}}
+			    </view>
+		    </picker>
+      </view>
+    </view>
+    <view class="cu-item">
+      <view class="content" bindtap="feedback">
+        <view class="title" style="display: inline-block;">背景颜色</view>
+		    <picker style="float:right;" bindchange="update_bgcolor" value="{{current_bg_color}}" range="{{bg_color}}">
+			    <view class="picker text-center">
+				    {{bg_color[current_bg_color]}}
+			    </view>
+		    </picker>
+      </view>
+    </view>
+    <view class="cu-item">
+      <view class="content" bindtap="about_us" >
+        <!-- <text class="cuIcon-github text-grey"></text> -->
+        <text >关于我们</text>
+      </view>
+    </view>
+</view>
+<view class="cu-tabbar-height"></view>
+<view wx:if="{{nickName}}">
+  <button class="cu-btn bg-green shadow my-center" bindtap="log_out" style="font-size: 16px; width: 120px; height: 30px; line-height: 30px; display: block; margin:0 auto">退出登录</button>
+</view>

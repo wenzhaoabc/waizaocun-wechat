@@ -1,0 +1,67 @@
+<!--pages/square/square.wxml-->
+<cu-custom bgColor="bg-gradual-blue">
+    <view slot="content">广场</view>
+</cu-custom>
+<scroll-view scroll-y class="scrollPage">
+  <view id="square-top">
+    <swiper class='swiper' indicator-dots bindchange="getcurrent">
+      <block wx:for="{{img}}">
+        <swiper-item >
+          <image class='swiper-item' mode="widthFix" src="{{item}}" ></image>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+  <view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg radius">
+    <view class="cu-item arrow">
+      <navigator class="content" url="/pages/home/news/news" hover-class="none">
+        <text class="cuIcon-news text-orange"></text>
+        <text class="text-grey">外灶要闻</text>
+      </navigator>
+    </view>
+    <view class="cu-item arrow">
+      <navigator class="content" url="/pages/home/notice/notice" hover-class="none">
+        <text class="cuIcon-formfill text-green"></text>
+        <text class="text-grey">通知公告</text>
+      </navigator>
+    </view>
+    <view class="cu-item arrow">
+      <button class="cu-btn content" bindtap="q_f">
+        <text class="cuIcon-writefill text-cyan"></text>
+        <text class="text-grey">问题反馈</text>
+      </button>
+    </view>
+    <view class="cu-item arrow">
+      <navigator class="content" url="/pages/home/share/share" hover-class="none">
+        <text class="cuIcon-creativefill text-orange"></text>
+        <text class="text-grey">分享时刻</text>
+      </navigator>
+    </view>
+  </view>
+  <view class="cu-tabbar-height"></view>
+</scroll-view>
+<view class='event' wx:if="{{question}}" style="width:275px;left:22.5px">
+    <view class="text-center title margin-sm">
+      问题反馈
+    </view>
+    <view class="cu-form-group ">
+		  <view class="title">问题类型</view>
+		  <picker bindchange="question_type_change" value="{{current_question_type}}" range="{{question_type}}">
+			  <view class="picker text-center">
+				  {{question_type[current_question_type]}}
+			  </view>
+		  </picker>
+	  </view>
+    <view class="cu-form-group">
+		  <view class="title">请填写您的问题描述：</view>
+	  </view>
+    <view class="cu-form-group">
+		  <textarea placeholder="点击编辑我的问题" bindinput="get_name"></textarea>
+	  </view>
+    <button class="cu-btn l" role="button"  style="width:80px" bindtap="yes">
+      确认
+    </button>
+    <button class="cu-btn r" role="button"  style="width:80px" bindtap="no">
+              取消
+    </button>
+</view>

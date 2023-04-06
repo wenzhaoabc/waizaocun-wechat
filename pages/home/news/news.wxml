@@ -1,0 +1,38 @@
+<!--pages/news/news.wxml-->
+
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">要闻</view>
+</cu-custom>
+
+<!-- 修改为其上colorUI的组件形式-2022年10月3日20点12分 -->
+<!-- <view  style="background-color: #FFFFFF; font-size: 24px; height:40px;line-height: 40px;text-align: center; color:rgb(114, 113, 108);" >
+  <button bindtap="return" style="position: absolute;left: 0%;width:100px;height:40px;line-height:40px;font-size: 20px;background-color: #FFFFFF;padding: 0;color:rgb(114, 113, 108);">
+  返回
+  </button>
+  通知
+</view> -->
+
+<block wx:for="{{news}}" wx:key="index">
+<view class="cu-card dynamic">
+  <view class="cu-item shadow">
+    <view class="cu-item">
+      <view class="content shadow">
+        <view class="cu-capsule radius">
+          <view class="cu-tag line-black">{{item.publishTime}}</view>
+        </view>
+      </view>   
+    </view>
+    <view class="text-content">
+      {{item.content}}
+    </view>
+    <view class="grid flex-sub padding-lr {{'col-1'}}">
+      <view class="bg-img only-img" style="background-image:url({{item.img}});">
+      </view>
+    </view>
+    <view class="text-gray text-sm text-right padding">
+      <text class="cuIcon-attentionfill margin-lr-xs"></text> 点击查看详情
+    </view>
+  </view>
+</view>
+</block>
