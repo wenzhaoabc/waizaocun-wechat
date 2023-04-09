@@ -25,6 +25,11 @@ Page({
       url: '../../user/setting/setting'
     })
   },
+  about(e){
+    wx.navigateTo({
+      url: '../../user/about/about'
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

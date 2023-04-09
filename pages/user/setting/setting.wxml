@@ -34,12 +34,6 @@
 		    </picker>
       </view>
     </view>
-    <view class="cu-item">
-      <view class="content" bindtap="about_us" >
-        <!-- <text class="cuIcon-github text-grey"></text> -->
-        <text >关于我们</text>
-      </view>
-    </view>
 </view>
 <view class="cu-tabbar-height"></view>
 <view wx:if="{{nickName}}">

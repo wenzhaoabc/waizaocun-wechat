@@ -26,12 +26,8 @@
         <view style="width:50px;"></view>
       </view>
     </view>
-    <!-- <view style="margin-top:15px ;color: gray;">编辑于9-24 上海</view> -->
-    <!-- <view style="margin-top:10px ;margin-left: 10px; font-size: 20px; display: block;float: left;">
-      <text class="cuIcon-appreciatefill text-red"></text>
-    </view> -->
     <view style="width: 100%;height: 3rpx; background-color: rgb(223, 215, 215); margin-top: 10px;"></view>
-    <view style="margin-top:15px;font-size: 16px;color: rgb(100, 99, 99);">共{{share.commentAmount}}条评论</view>
+    <view style="margin-top:15px;font-size: 16px;color: rgb(100, 99, 99);">共{{share.comment.length}}条评论</view>
     <view class="cu-card dynamic ">
         <block wx:for="{{share.comment}}"  wx:key="index">
             <view class="cu-item shadow" style="width: 100%;margin-left: 0;background-color: var(--ghostWhite)">
@@ -48,7 +44,6 @@
                 <view>
                     <text wx:if="{{item.isLove==false}}" class="cuIcon-appreciatefill text-grey" style="font-size: 18px;" bindtap="comment_love" data-index="{{index}}" ></text>
                     <text wx:if="{{item.isLove==true}}" class="cuIcon-appreciatefill text-red" style="font-size: 18px;" bindtap="comment_love" data-index="{{index}}" ></text>
-                  <!-- <text class="cuIcon-messagefill text-gray margin-left-sm" style="font-size: 18px;"></text> -->
                 </view>
               </view>
             </view>

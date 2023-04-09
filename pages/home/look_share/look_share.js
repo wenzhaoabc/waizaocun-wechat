@@ -1,30 +1,52 @@
 // pages/look_share/look_share.js
 var app=getApp()
+var QQMapWX = require('../../../qqmap-wx-jssdk.js');
+var qqmapsdk;
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
-    //   img:['https://s2.loli.net/2022/10/01/NFXyqBG3nhosRft.jpg',
-    // 'https://tse1-mm.cn.bing.net/th/id/R-C.e67a6f92cc770d67bb61b87947f67d5e?rik=7fmOVwkQaNDQbQ&riu=http%3a%2f%2fwww.nianyunzm.com%2fwp-content%2fuploads%2f2021%2f06%2f175.jpg&ehk=4daIM6W8BcABT%2fwnwE%2fVpPcpwlJcPsCoUG0xbYPPvck%3d&risl=&pid=ImgRaw&r=0'],
      share:{},
      img:[],
      content:'',
+     location:'',
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad(options) {
-        // const index=JSON.parse(options.index)
-        // console.log(index)
-        // this.setData({
-        //     share:app.globalData.share[index],
-        //     img:app.globalData.share[index].img
-        // })
-        // console.log(this.data.share)
-
+      var that=this
+      qqmapsdk = new QQMapWX({
+        key: 'X3BBZ-2DZKH-WFUDR-WEOLF-GOTOZ-O7F3A'
+      });
+      wx.getLocation({
+        type: "wgs84",
+        success(res) {
+          let {latitude,longitude} = res
+          // 调用腾讯地图api获取当前位置
+          qqmapsdk.reverseGeocoder({
+            location: {
+              latitude: latitude,
+              longitude: longitude
+            },
+            success: function (res) {
+              console.log("地理位置"+res.result)
+              that.setData({
+                location:res.result.address
+              })
+            },
+            fail: function (res) {
+              console.log(res);
+            },
+            complete: function (res) {
+              console.log(res);
+            }
+          });
+        }
+      })
     },
     //发送
  send: function() {
@@ -40,41 +62,66 @@ Page({
         content:inputValue
     })
     }
-    var timestamp = Date.parse(new Date());
-    var date = new Date(timestamp);
-    //获取年份  
-    var Y =date.getFullYear();
-    //获取月份  
-    var M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1);
-    //获取当日日期 
-    var D = date.getDate() < 10 ? '0' + date.getDate() : date.getDate(); 
-    console.log("当前时间：" + Y + '年'  + M+ '月' + D+ '日' ); 
+    // var timestamp = Date.parse(new Date());
+    // var date = new Date(timestamp);
+    // //获取年份  
+    // var Y =date.getFullYear();
+    // //获取月份  
+    // var M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1);
+    // //获取当日日期 
+    // var D = date.getDate() < 10 ? '0' + date.getDate() : date.getDate(); 
+    // console.log("当前时间：" + Y + '年'  + M+ '月' + D+ '日' ); 
             
-            var new_share=this.data.share
-            var new_comment={}
-            new_comment={
-                content:inputValue,
-                img:wx.getStorageSync('avatarUrl'),
-                is_love:false,
-                name:wx.getStorageSync('nickName'),
-                place:'上海',
-                time:M+'-'+D
-            }
-            new_share.comment.push(new_comment)
-            new_share.comment_amount=new_share.comment_amount+1
-            this.setData({
-                share:new_share
-            })
-            this.setData({
-                content:''
-            })
-    
+    // var new_share=this.data.share
+    // var new_comment={}
+    // new_comment={
+    //     content:inputValue,
+    //     img:wx.getStorageSync('avatarUrl'),
+    //     is_love:false,
+    //     name:wx.getStorageSync('nickName'),
+    //     place:'上海',
+    //     time:M+'-'+D
+    // }
+    // new_share.comment.push(new_comment)
+    // new_share.comment_amount=new_share.comment_amount+1
+    // this.setData({
+    //   share:new_share
+    // })
+
+    var that=this
+    //请求添加评论信息
+    wx.request({
+      url:app.globalData.path+'share/addComment', 
+      header: { 'Content-Type': 'application/json;charset=utf-8' },
+      data: {
+        shareId:that.data.share.shareId,
+        content:that.data.content,
+        place:that.data.location,
+        publisherId:wx.getStorageSync('openid'),
+        publisherType:"村民"//待修改
+      },
+       method: 'POST',        
+       success: function (res) {
+          console.log(data); 
+          console.log("添加评论");
+          console.log(res.data); 
+            // wx.showModal({
+            //   content:"发布成功",
+            //   showCancel: false,
+            //   confirmText: '确定',
+            // })               
+       }
+    })
+
+    this.setData({
+      content:'',
+      inputVal:''
+    })
+
+    this.onShow()
   },
 
-    InputBlur(e){
-       
-    },
-    love(e){
+  love(e){
         var share1={}
         share1= this.data.share
         console.log("shareId:"+share1.shareId)
@@ -112,7 +159,7 @@ Page({
           })
         }
         this.onShow()
-    },
+  },
      //获取输入内容
   getInputVal: function(e) {
     this.setData({

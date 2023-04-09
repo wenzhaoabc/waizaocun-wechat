@@ -31,6 +31,6 @@
   当前位置：{{location}}
 </view>
 <view class="cu-bar btn-group">
-  <button class="cu-btn bg-green shadow-blur" bindtap="submit">上传</button>
+  <button class="cu-btn bg-green shadow-blur" bindtap="submit">分享</button>
   <button class="cu-btn text-green line-green shadow" bindtap="cancel">取消</button>
 </view>

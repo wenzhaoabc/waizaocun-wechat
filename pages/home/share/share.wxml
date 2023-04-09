@@ -22,7 +22,8 @@
 </view>
 <view class="grid col-2 margin-bottom text-center" wx:if="{{length!=0}}">
     <block wx:for="{{share}}"  wx:key="index" >
-    <view class="" >
+    <view style="padding: 10px;" class="solids shadow shadow-lg">
+      <!-- style="width: 45%; margin: auto;margin-top:10px;" -->
     <view class="cu-card dynamic">
       <view class="cu-item shadow">
         <view class="grid flex-sub" bindtap="lookMore" data-index="{{index}}">
@@ -30,7 +31,6 @@
           </view>
         </view>
 
-        
         <view class="text-black over_ignore" style="margin-top: 5px;height:36px;">
           {{item.content}}
         </view>
