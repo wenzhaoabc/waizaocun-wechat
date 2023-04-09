@@ -1,10 +1,19 @@
 # 外灶村小程序
 
-外灶村现代化乡村建设项目微信小程序，UI设计参考[ColorUI-GA](https://github.com/XiaokangLei/ColorUI-GA)
+外灶村现代化乡村建设项目微信小程序，UI设计参考[ColorUI-GA](https://github.com/XiaokangLei/ColorUI-GA),UI组件库为[tdesign](https://tdesign.tencent.com/miniprogram/overview)
 
 ## 运行
 
 拉取代码在微信开发者工具中打开
+
+安装依赖库
+```sh
+npm install
+```
+
+构建npm,转到`工具`>`构建npm`
+
+编译运行
 
 ## 目录结构
 
