@@ -1,4 +1,5 @@
 // pages/feedback/feedback.js
+var app=getApp()
 Page({
 
     /**
@@ -9,14 +10,7 @@ Page({
           {
               name:'公共空间治理',
               lookorrun:false,
-              feedback:[
-                  {
-                      content:'XXX街道点位设计不太好',
-                      fd_time:'9-4',
-                      reply:'感谢您的反馈，会进一步加强',
-                      re_time:'9-5'
-                  }
-              ],
+              feedback:[],
           },
           {
               name:'村委会行政',
@@ -100,9 +94,25 @@ Page({
       var new_feedback=this.data.my_feedback
       console.log(e.currentTarget.dataset.index)
       new_feedback[e.currentTarget.dataset.index].lookorun=true
+      console.log(app.globalData.path+'feedback/getInfo'+(e.currentTarget.dataset.index+1))
+      wx.request({
+        url:app.globalData.path+'feedback/getInfo'+(e.currentTarget.dataset.index+1), 
+        header: { 'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8' },
+        data: {
+            wechatid:wx.getStorageSync('openid')
+        },
+         method: 'POST',        
+         success: function (res) {
+              console.log("获得反馈成功");
+              console.log(res.data.data); 
+              new_feedback[e.currentTarget.dataset.index].feedback=res.data.data                 
+         }
+      })
       this.setData({
           my_feedback:new_feedback
       })
+
+      //this.onShow()
   },
     showfeedback(){
         if(this.data.my_feed_public==false){
@@ -133,22 +143,24 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow() {
-      // var that=this
-      // wx.request({
-      //   url:'http://localhost:5555/Home/feedback', 
-      //   header: { 'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8' },
-      //   data: {
-      //     openid:wx.getStorageSync('openid'),
-      //   },
-      //    method: 'GET',
-         
-      //    success: function (res) {
-      //         console.log("成功5");
-      //         console.log(res.data.data); 
-      //         that.setData({
-      //           feed_back:res.data.data
-      //         })                 
-      //    }
+      // var new_feedback=this.data.my_feedback
+      // for(var i=1;i<=5;i++){
+      //   wx.request({
+      //     url:app.globalData.path+'feedback/getInfo'+i, 
+      //     header: { 'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8' },
+      //     data: {
+      //         wechatid:wx.getStorageSync('openid')
+      //     },
+      //      method: 'POST',        
+      //      success: function (res) {
+      //           console.log("获得反馈成功");
+      //           console.log(res.data.data); 
+      //           new_feedback[i-1].feedback=res.data.data                 
+      //      }
+      //   })
+      // }
+      // this.setData({
+      //   my_feedback:new_feedback
       // })
     },
   

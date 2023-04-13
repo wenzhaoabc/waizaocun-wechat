@@ -27,20 +27,20 @@
   <view style="background-color: rgb(218, 234, 245);width: 80%;margin:15px auto;">
     <view class="cu-chat" wx:for="{{item.feedback}}"  wx:key="index">
       <view class="cu-item self">
-        <view class="main">
+        <view class="main" style="margin-bottom:10px ;">
           <view class="content bg-green shadow">
             <text>{{item.content}}</text>
           </view>
         </view>
-        <view class="date" style="text-align: center;">反馈时间：{{item.fd_time}}</view>
+        <view class="date" style="text-align: center;margin-top:10px ;">反馈时间：{{item.feedbackTime}}</view>
       </view>
-      <view class="cu-item" wx:if="{{item.reply!=null}}">
+      <view class="cu-item" wx:if="{{item.replyContent!=null}}">
         <view class="main">
           <view class="content shadow">
-            <text>回复：{{item.reply}}</text>
+            <text>回复：{{item.replyContent}}</text>
           </view>
         </view>
-      <view class="date " style="text-align: center;">回复时间： {{item.re_time}}</view>
+      <view class="date " style="text-align: center;">回复时间： {{item.replyTime}}</view>
       </view>
     </view>
   </view>
