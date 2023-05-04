@@ -1,11 +1,11 @@
 <view capture-bind:touchend="canselSearch" class="map-container">
   <view class="map-content map-content-show">
-    <map class="map" 
+    <map class="map"
       markers="{{siteMakers}}" 
       latitude="{{location.latitude}}" 
       longitude="{{location.longitude}}" 
       scale="{{mapScale}}" 
-      min-scale="{{minScale}}" 
+      min-scale="{{minScale}}"
       max-scale="{{maxScale}}" 
       enable-satellite="{{satellite}}" 
       show-location="{{true}}" 

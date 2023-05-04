@@ -11,21 +11,20 @@ App({
     })
 
     wx.getStorage({
-      key: 'token',
+      key: 'daoxiangli-token',
       success: (res) => {
         this.globalData.token = res.data
       },
       fail: (err) => {
+        // wx.navigateToMiniProgram();
+        wx.navigateTo({
+          url: 'pages/login/index',
+        });
         wx.showToast({
           title: '请重新登录',
         });
-        wx.navigateTo({
-          url: './pages/login/index',
-        })
       }
     })
-
-
   },
   globalData: {
     userInfo: null,
@@ -34,6 +33,7 @@ App({
     StatusBar: null,
     Custom: null,
     CustomBar: null,
+    // 自定义数据
     path:'http://localhost:5000/',
     currentShareId:0
   }
