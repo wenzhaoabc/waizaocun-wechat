@@ -1,38 +1,28 @@
-<view capture-bind:touchend="canselSearch" class="map-container">
-  <view class="map-content map-content-show">
-    <map class="map"
+<view class="map-container">
+  <view class="map-content ">
+    <map id="my-map" class="my-map-style"
+      setting="{{mapSettings}}"
       markers="{{siteMakers}}" 
       latitude="{{location.latitude}}" 
-      longitude="{{location.longitude}}" 
-      scale="{{mapScale}}" 
-      min-scale="{{minScale}}"
-      max-scale="{{maxScale}}" 
-      enable-satellite="{{satellite}}" 
-      show-location="{{true}}" 
-      bindmarkertap="onChangeCurrentSite" 
-      bindcallouttap="onChangeCurrentSite">
+      longitude="{{location.longitude}}"
+      polygons="{{ communityPolygon }}"
+      bind:tap="bindTapMap"
+      bindcallouttap="onMarkerTaped" >
       <!-- 卫星图/标准地图切换 -->
       <cover-image 
         src="{{mapFormIcon}}" 
         class="control-btn control-btn-mapform" 
-        bindtap="onChangeMapForm" />
-      <!-- 放大按钮 -->
-      <cover-image 
-        hidden="{{toSearch||toDetail}}" 
-        src="{{imgs.plus}}" 
-        class="control-btn control-btn-increase" 
-        bindtap="onIncreaseScale" />
-      <!-- 缩小按钮 -->
-      <cover-image 
-        hidden="{{toSearch||toDetail}}" 
-        src="{{imgs.minus}}" 
-        class="control-btn control-btn-decrease" 
-        bindtap="onDecreaseScale" />
+        catchtap="onChangeMapForm" />
+      <cover-image
+        src="../../../images/middle/position.png"
+        class="control-btn goto-origin-position"
+        catch:tap="gotoOriginPosition">
+      </cover-image>
     </map>
   </view>
 </view>
 
-<view wx:if="{{!toSearch}}" class="float-bottom">
+<!-- <view wx:if="{{!toSearch}}" class="float-bottom">
   <view class="cu-bar search-box">
     <view class="search-form round text-xxl" 
       style="height: 80rpx;background-color: #fff;" 
@@ -75,7 +65,6 @@
 
 <view hidden="{{!toSearch}}" class="search">
   <view>
-    <!-- 搜索框 -->
     <input type="text" 
       placeholder="请输入要搜索的点位名称" 
       bindinput="inputtoSearch" 
@@ -105,106 +94,83 @@
       </view>
     </view>
   </scroll-view>
+</view> -->
+<view class="bottom-action" style="height: {{ bottomActionHeight }};" animation = "{{ aniUp }}">
+  <t-search
+    class="action-search"
+    value="{{searchValue}}"
+    left
+    placeholder="搜索附近点位"
+    action="{{actionText}}"
+    bind:blur="blurHandle"
+    bind:focus="focusHandle"
+    bind:action-click="actionHandle"
+    bind:change="changeHandle"
+  />
+
+  <t-row wx:if="{{ showActionBtn }}" gutter="20">
+    <t-col span="8" class="action-item">
+      <view animation="{{ aniRightOut }}" hover-class="action-item-hover">
+        <image src="../../../images/middle/hot_fill.png" mode="图标" class="action-img" />
+        <view class="action-text">热榜</view>
+      </view>
+    </t-col>
+    <t-col span="8" class="action-item">
+      <view animation="{{ aniRightOut }}" hover-class="action-item-hover" bind:tap="handleMyFeedbackHistory">
+        <image src="../../../images/middle/cunshe.png" mode="图标" class="action-img" />
+        <view class="action-text">我的</view>
+      </view>
+    </t-col>
+    <t-col span="8" class="action-item">
+      <view animation="{{ aniRightOut }}" hover-class="action-item-hover" bind:tap="handleAddSite">
+        <image src="../../../images/middle/fankui.png" mode="图标" class="action-img" />
+        <view class="action-text">新建</view>
+      </view>
+    </t-col>
+  </t-row>
+
+  <view>
+    <t-cell 
+      wx:for="{{ searchResSitesInfo }}"
+      wx:key="siteId"
+      wx:for-item="site"
+      t-class-description="search-res-desc"
+      title="{{ site.title }}" 
+      description="{{ site.detail }}" 
+      align="top"
+      arrow
+      hover
+      data-siteId="{{ site.siteId }}"
+      bind:tap="handleSearchedItemClick"
+    />
+  </view>
+
 </view>
 
 
-<view hidden="{{!(!toSearch&&toDetail)}}" class="sitedetail">
-  <scroll-view scroll-y="true" style="height: 100%; padding-top: 20rpx;">
-    <view class="cu-card case no-card margin-top-sm">
-      <view class="cu-item shadow">
-        <view class="image">
-          <image src="{{currentSiteInfo.imgurl}}" mode="scaleToFill"></image>
-          <view class="cu-tag bg-blue">标签</view>
-        </view>
-        <view class="cu-list menu">
-          <view class="cu-item">
-            <view class="content flex-sub">
-              <view class="text-black text-xl">{{currentSiteInfo.title}}</view>
-              <view class="text-gray text-sm flex justify-between">
-                {{currentSiteInfo.publisher}} · {{currentSiteInfo.publishtime}}
-              </view>
-              <view class="text-black text-l">
-                详情：
-                {{currentSiteInfo.detail}}
-              </view>
-            </view>
-          </view>
-        </view>
+<view wx:if="{{ toDetail }}"
+  class="sitedetail" 
+  style="height: {{ siteDetailHeight }};"
+  animation = "{{ aniSiteDetail }}"
+  >
+<scroll-view scroll-y="true" class="scroll-view-sites">
+  <view class="swipper">
+    <t-swiper 
+      image-props="{{ {height:200,width:1000,mode:'scaleToFill',shape:'round',lazy:true} }}" 
+      list="{{swiperList}}" 
+      navigation="{{navigation}}" 
+    >
+    </t-swiper>
+    <view>
+      <t-button catch:tap="onShowSiteFullView" class="full-view-button" theme="light" size="middle">全景</t-button>
+      <view class="site-title">{{ currentSiteInfo.title }}</view>
+      <text class="community-name"> {{ communityInfo.name }} : {{ communityInfo.createTime }} </text>
+      <view class="site-detail-text">{{ currentSiteInfo.detail }}</view>
+      <view class="try-button">
+        <t-button bind:tap="onStartDesign" style="width: 100%;" >Try↗</t-button>
       </view>
     </view>
-    <view class="padding flex flex-direction bg-white">
-      <button class="cu-btn bg-green lg" bindtap="onStartDesign">设计</button>
-    </view>
-    <view class="cu-list menu-avatar comment solids-top">
-      <view class="cu-bar input">
-        <view class="action">
-          <text class="cuIcon-write text-grey"></text>
-        </view>
-        <input 
-          class="solid-bottom" 
-          adjust-position="{{false}}" 
-          focus="{{false}}" 
-          maxlength="300" 
-          cursor-spacing="10" 
-          value="{{content}}" 
-          bindinput="getInputVal" 
-          placeholder="说点什么..." />
-
-        <button class="cu-btn bg-green shadow" bindtap="sendReview">发布</button>
-      </view>
-      <view wx:for="{{reviewList}}" wx:key="reviewID" class="cu-item">
-        <view 
-          class="cu-avatar round" 
-          style="background-image:url({{item.headPhoto}});"></view>
-        <view class="content">
-          <view class="text-grey">{{item.userName}}</view>
-          <view class="text-gray text-content text-df">
-            {{item.content}}
-          </view>
-          <view class="margin-top-sm flex justify-between">
-            <view class="text-gray text-df">{{item.date}}</view>
-            <view>
-              <text class="cuIcon-appreciatefill {{item.isHelpful?'text-red':'text-gray'}}"></text>
-              <text class="cuIcon-messagefill {{item.isLoved?'text-red':'text-gray'}} margin-left-sm"></text>
-            </view>
-          </view>
-        </view>
-      </view>
-      <view class="cu-item">
-        <view 
-          class="cu-avatar round" 
-          style="background-image:url(https://ossweb-img.qq.com/images/lol/img/champion/Morgana.png);"></view>
-        <view class="content">
-          <view class="text-grey">李林飞</view>
-          <view class="text-gray text-content text-df">
-            美丽外灶人人共建！
-          </view>
-          <view class="margin-top-sm flex justify-between">
-            <view class="text-gray text-df">2022年11月4日</view>
-            <view>
-              <text class="cuIcon-appreciatefill text-red"></text>
-              <text class="cuIcon-messagefill text-gray margin-left-sm"></text>
-            </view>
-          </view>
-        </view>
-      </view>
-      <view class="cu-item">
-        <view class="cu-avatar round" style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg);"></view>
-        <view class="content">
-          <view class="text-grey">岳疏鸿</view>
-          <view class="text-gray text-content text-df">
-            浴乎沂，风乎舞雩，咏而归。是我向往的生活😃
-          </view>
-          <view class="margin-top-sm flex justify-between">
-            <view class="text-gray text-df">2022年10月29日</view>
-            <view>
-              <text class="cuIcon-appreciate text-gray"></text>
-              <text class="cuIcon-messagefill text-gray margin-left-sm"></text>
-            </view>
-          </view>
-        </view>
-      </view>
-    </view>
-  </scroll-view>
+  </view>
+</scroll-view>
 </view>
 

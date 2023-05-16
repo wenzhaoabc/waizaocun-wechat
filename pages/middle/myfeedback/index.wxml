@@ -1,0 +1,30 @@
+<!--pages/middle/myfeedback/index.wxml-->
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">我的历史反馈</view>
+</cu-custom>
+
+<view>
+  <t-cell
+  class="feedback-item"
+  wx:for="{{ feedbackSite }}"
+  wx:for-item="site"
+  wx:key="id"
+  title="{{ site.title }}"
+  
+  align="top"
+  image="{{ site.imgList[0] }}"
+  hover
+  bordered="{{true}}"
+  arrow
+  right-icon="chevron-right"
+  note="{{ site.siteId? '已处理':'未处理' }}"
+  data-siteindex="{{index}}"
+  bind:click="handleFeedbackDetail"
+  >
+    <view slot="description">
+      <view class="item-description" >{{ site.content }}</view>
+      <view class="item-create-time"> {{ site.createdTime }} </view>
+    </view>
+  </t-cell>
+</view>

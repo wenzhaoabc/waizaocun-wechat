@@ -1,0 +1,50 @@
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">新增反馈点位</view>
+</cu-custom>
+
+<view class="title">
+  <t-input
+    model:value="{{title}}"
+    align="left"
+    maxlength="{{20}}"
+    label="反馈主题" 
+    placeholder="请输入标题" 
+  >
+  </t-input>
+</view>
+
+<view>
+  <t-textarea 
+    t-class="content-class"
+    model:value="{{ content }}" 
+    label="反馈建议" 
+    placeholder="请输入反馈文本" 
+    maxlength="1000"
+    disableDefaultPadding="{{true}}" />
+</view>
+
+<view class="upload">
+  <view class="upload-text">上传图片</view>
+  <t-upload
+    mediaType="{{['image']}}"
+    max="{{5}}"
+    files="{{fileList}}"
+    image-props="{{ imageProps }}"
+    config="{{ uploadImgConfig }}"
+    bind:add="handleAdd"
+    bind:remove="handleRemove"
+  >
+  </t-upload>
+</view>
+
+<view class="submit">
+  <t-button 
+    theme="light" 
+    icon="upload"
+    size="large" 
+    block 
+    bind:tap="handleFeedSubmit"
+  >{{ submitBtn.text }}</t-button>
+</view>
+

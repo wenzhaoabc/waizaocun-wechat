@@ -1,6 +1,6 @@
 var app = getApp()
 
-// const baseURL = 'http://daoxiangli.com:5000'
+// const baseURL = 'http://47.103.223.106:5000'
 const baseURL = 'http://127.0.0.1:5000'
 const Token = app.globalData.token;
 
@@ -36,6 +36,14 @@ module.exports = {
   get(url, data, params) {
     return http(url, {
       method: 'GET',
+      data,
+      ...params
+    })
+  },
+
+  delete(url, data, params) {
+    return http(url, {
+      method: 'DELETE',
       data,
       ...params
     })

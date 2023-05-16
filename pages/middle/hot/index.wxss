@@ -1,0 +1,24 @@
+/* pages/middle/hot/index.wxss */
+
+.site-detail {
+  white-space: nowrap;
+  /* 禁止换行 */
+  overflow: hidden;
+  /* 隐藏溢出的内容 */
+  text-overflow: ellipsis;
+  /* 使用省略号代替溢出的内容 */
+  width: 500rpx;
+}
+
+.two-line {
+  display: -webkit-box;
+  /* 旧版WebKit引擎和Blink引擎的必需属性 */
+  -webkit-box-orient: vertical;
+  /* 旧版WebKit引擎和Blink引擎的必需属性 */
+  overflow: hidden;
+  /* 隐藏溢出的内容 */
+  text-overflow: ellipsis;
+  /* 使用省略号代替溢出的内容 */
+  -webkit-line-clamp: 2;
+  /* 限制显示的行数 */
+}

@@ -1,0 +1,7 @@
+.back-btn{
+  position: absolute;
+  top: 20px;
+  left: 10px;
+  z-index: 1001;
+  color: black;
+}

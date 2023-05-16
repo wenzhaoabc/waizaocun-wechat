@@ -1,0 +1,38 @@
+<!--pages/middle/feedbackdetail/index.wxml-->
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">{{ feedback.title }}</view>
+</cu-custom>
+
+<view class="item-title">主题</view>
+<view class="item-content">{{ feedback.title }}</view>
+<view class="item-title">内容</view>
+<view class="item-content">{{ feedback.content }}</view>
+<view class="item-title">时间</view>
+<view class="item-content">{{ feedback.createdTime }}</view>
+<view class="item-title">状态</view>
+<view class="item-content">{{ feedback.siteId?'已处理':'未处理' }}</view>
+
+<view class="item-title">位置</view>
+
+<view class="item-content">
+  <map class="site-map" 
+    longitude="{{ feedback.siteLongitude }}" 
+    latitude="{{ feedback.siteLatitude }}"
+    show-location="{{ true }}"
+  />
+</view>
+
+<view class="item-title">图片</view>
+
+<view class="item-content">
+  <t-image
+    class="item-image"
+    wx:for="{{ feedback.imgList }}"
+    wx:for-item="url"
+    wx:key="url"
+    src="{{url}}" 
+    mode="aspectFill"
+    shape="round"
+    aria-label="一个放置在墙角的黄色行李箱" />
+</view>

@@ -1,0 +1,29 @@
+.title {
+  text-align: left;
+  margin: 10rpx auto;
+  padding: 0;
+  font-size: medium;
+}
+
+.content-class {
+  height: 512rpx;
+  font-size: medium;
+  margin: 10px auto;
+}
+
+.upload{
+  background-color: #fff;
+  margin: 10px auto;
+  width: 100%;
+}
+
+.upload-text{
+  padding: 32rpx 32rpx;
+  font-size: 28rpx;
+  line-height: 44rpx;
+  color: rgba(0, 0, 0, 0.9);
+}
+
+.submit{
+  margin: 0 32rpx;
+}
