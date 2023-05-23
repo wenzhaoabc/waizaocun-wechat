@@ -1,11 +1,40 @@
 <!-- 展示AR页面 -->
+<cu-custom bgColor="bg-gradual-green" isBack="{{true}}">
+    <view slot="backText">返回</view>
+    <view slot="content">AR设计</view>
+</cu-custom>
+
 <view>
-    <xr-ar
+    <!-- <xr-ar
         modelurl="{{modelurl}}"
         disable-scroll 
         id="main-frame" 
         width="{{renderWidth}}" 
         height="{{renderHeight}}" 
         style="width:{{width}}px;height:{{height}}px;" 
-        />
+        /> -->
+    <xr-arp 
+        disable-scroll 
+        id="main-frame" 
+        width="{{renderWidth}}" 
+        height="{{renderHeight}}" 
+        style="width:{{width}}px;height:{{height}}px;"
+        model="{{ modelurl }}"
+    />
+
+</view>
+
+<view class="bottom-tips">
+    <view 
+        class="b-text" 
+        style="width: 250px; display: inline-block; font-size: 1em;"> 
+        点击可放置AR模型，支持缩放和旋转，点击右侧按钮完成创作 
+    </view>
+    <t-button 
+        class="b-btn" 
+        theme="light" 
+        size="large"
+        bind:tap="handleComplete">
+        完成创作
+    </t-button>
 </view>

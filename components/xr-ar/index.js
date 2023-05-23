@@ -4,7 +4,7 @@ Component({
      * 组件的属性列表
      */
     properties: {
-        modelurl:String
+        modelurl: String
     },
 
     /**
@@ -22,12 +22,20 @@ Component({
             // console.log("");
             // wx.showToast({ title: 'Ready' });
             this.scene = detail.value;
+            console.log(this.properties.modelurl);
         },
         handleAssetsLoaded: function ({ detail }) {
             wx.showToast({ title: '点击屏幕放置' });
             this.scene.event.add('touchstart', () => {
                 this.scene.ar.placeHere('setitem', true);
             });
+        },
+        handleShare: function () {
+            wx.showToast({
+                title: '分享',
+                icon: 'success'
+            })
+            console.log("分享");
         }
     }
 })

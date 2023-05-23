@@ -223,7 +223,10 @@ Page({
   onStartDesign() {
     app.globalData.selectedSite = this.data.currentSiteInfo
     wx.navigateTo({
-      url: '../reform/index',
+      url: '../sitedesign/index',
+      success: (res) => {
+        res.eventChannel.emit("data", this.data.currentSiteInfo)
+      }
     })
   },
 

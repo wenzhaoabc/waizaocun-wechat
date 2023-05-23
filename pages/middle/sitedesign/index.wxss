@@ -15,6 +15,11 @@
 .target-canvas {
   visibility: hidden;
   position: absolute;
+  width: 95%;
+  left: 0;
+  right: 0;
+  /* top: 200px; */
+  margin: auto;
 }
 
 .src-img {

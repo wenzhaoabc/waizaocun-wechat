@@ -21,10 +21,14 @@ App({
         wx.navigateTo({
           // url: 'pages/login/index',
           url: 'pages/middle/sitedesign/index'
+          // url: 'pages/middle/savedraft/index'
           // url: 'pages/middle/sitefeedback/index'
           // url: 'pages/middle/myfeedback/index'
           // url:'pages/middle/feedbackdetail/index'
-          // url: 'pages/middle/hot/index'
+          // url: 'pages/middle/hot/index',
+          , success: (res) => {
+            res.eventChannel.emit("data", {})
+          }
         });
         wx.showToast({
           title: '请重新登录',

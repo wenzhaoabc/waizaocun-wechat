@@ -1,20 +1,19 @@
-<xr-scene
-    ar-system="modes:Plane"
-    bind:ready="handleReady">
+<xr-scene ar-system="modes:Plane" bind:ready="handleReady">
     <xr-assets bind:loaded="handleAssetsLoaded">
         <xr-asset-load type="gltf" asset-id="anchor" src="https://mmbizwxaminiprogram-1258344707.cos.ap-guangzhou.myqcloud.com/xr-frame/demo/ar-plane-marker.glb" />
-        <xr-asset-load type="gltf" asset-id="miku" src="{{modelurl}}" />
+        <xr-asset-load type="gltf" asset-id="miku" src="{{ modelurl }}" />
     </xr-assets>
 
     <xr-env env-data="xr-frame-team-workspace-day"></xr-env>
     <xr-light type="ambient" color="1 1 1" intensity="1" />
     <xr-light type="directional" rotation="40 70 0" color="1 1 1" intensity="3" cast-shadow />
-    
-    <xr-ar-tracker mode="Plane"> 
+
+    <xr-ar-tracker mode="Plane">
         <xr-gltf model="anchor"></xr-gltf>
     </xr-ar-tracker>
 
     <xr-node node-id="setitem" visible="false">
+        <xr-mesh node-id="mesh-plane" geometry="plane" material="mat" cube-shape="autoFit:true" bind:touch-shape="handleShare" />
         <xr-gltf model="miku" anim-autoplay scale="0.08 0.08 0.08" rotation="0 180 0"></xr-gltf>
     </xr-node>
 

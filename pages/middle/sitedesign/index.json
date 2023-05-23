@@ -9,6 +9,8 @@
     "t-image": "tdesign-miniprogram/image/image",
     "t-grid": "tdesign-miniprogram/grid/grid",
     "t-grid-item": "tdesign-miniprogram/grid-item/grid-item",
-    "t-slider": "tdesign-miniprogram/slider/slider"
+    "t-slider": "tdesign-miniprogram/slider/slider",
+    "xr-ar": "../../../components/xr-ar/index",
+    "t-upload": "tdesign-miniprogram/upload/upload"
   }
 }

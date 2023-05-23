@@ -1,10 +1,18 @@
 var app = getApp()
 
-// const baseURL = 'http://47.103.223.106:5000'
-const baseURL = 'http://127.0.0.1:5000'
+let baseURL = 'http://47.103.223.106:5000'
+// const baseURL = 'http://127.0.0.1:5000'
+// const baseURL = 'http://100.80.86.3:5000'
+// const baseURL = 'https://192.168.77.70:5001'
+const baseMock = "https://mock.mengxuegu.com/mock/646c4d749d552b3b3b17cc9f"
 const Token = app.globalData.token;
 
 function http(url, options) {
+  if (options.method == 'GET') {
+    baseURL = baseMock;
+  } else {
+    baseURL = 'http://47.103.223.106:5000'
+  }
   return new Promise((resolve, reject) => {
     wx.request({
       url: baseURL + url,
@@ -33,6 +41,7 @@ function http(url, options) {
 
 
 module.exports = {
+  baseURL,
   get(url, data, params) {
     return http(url, {
       method: 'GET',

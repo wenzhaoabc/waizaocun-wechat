@@ -23,5 +23,13 @@ module.exports = {
 
   getDesignItemApi() {
     return http.get(`/design/all-item`, {}, {});
+  },
+
+  getArModelApi() {
+    return http.get('/design/ar', {}, {});
+  },
+
+  addMySiteDesign(siteDesign) {
+    return http.post('/design/site-add', siteDesign, { noLogin: false })
   }
 }

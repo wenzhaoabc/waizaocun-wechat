@@ -1,1 +1,7 @@
 /* pages/savedraft/savedraft.wxss */
+.res-img{
+    margin-top: 30rpx;
+    text-align: center;
+    max-height: 600rpx;
+    overflow: hidden;
+}

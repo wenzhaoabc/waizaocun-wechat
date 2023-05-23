@@ -1,6 +1,7 @@
 // pages/middle/sitefeedback/index.js
 // const api = require('../../../utils/http')
-const api = require('../../../api/sitefeedback')
+const api = require('../../../api/sitefeedback');
+const http = require('../../../utils/http');
 Page({
 
   /**
@@ -54,9 +55,10 @@ Page({
 
     console.log("fileList", this.data.fileList);
     const { length } = fileList;
+    const baseURL = http.baseURL;
 
     const task = wx.uploadFile({
-      url: 'http://127.0.0.1:5000/file/upload-single', // 仅为示例，非真实的接口地址
+      url: baseURL + '/file/upload-single', // 仅为示例，非真实的接口地址
       filePath: file.url,
       name: 'file',
       // formData: { user: 'test' },
