@@ -3,3 +3,25 @@
   <view slot="backText">返回</view>
   <view slot="content">关于我们</view>
 </cu-custom>
+<view class="content">
+	<!--pics文件夹下的background.jpg文件-->
+	<image class='background' src="./background.png" mode="aspectFill"></image>
+	<!--页面其它部分-->
+  <view style="margin-left: 20px;margin-right: 20px;">
+  <view>
+    <view class="title">
+    <view style="height: 30px;">
+    </view>
+      <view class="text-content" style="text-indent:2em;margin-bottom: 20px;font-size: 14px;">服务于外灶村的村民、外来租住人群和游客人群，旨在提供更加便捷、高效、人性化的乡村公共空间治理方案，促进乡村发展和文化传承。</view>
+    </view>
+    <view class="content" style="margin-bottom: 30px;">
+      <image src="https://s2.loli.net/2022/10/01/NFXyqBG3nhosRft.jpg" mode="aspectFill" style="margin-bottom: 15px;"></image>
+      <view class="desc">
+        <view class="text-content" style="text-indent:2em">外灶村位于浦东新区南部的书院镇内，三三公路、两港大道、临临港大道分别从其北部、南部、东部穿过。外灶之“灶〞，指过去制盐的建制单位， 当地人也视为制盐时的砌灶烧煮。外灶老街位于外灶村东部、白龙港以东，曾经是外灶村一条繁华的商业街，随着制盐产业的退出，老街也逐渐归于平静，如今是以居住功能为主的老街。</view>
+        <view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+</view>

@@ -93,26 +93,11 @@ Page({
     open(e){
       var new_feedback=this.data.my_feedback
       console.log(e.currentTarget.dataset.index)
+      console.log(this.data.my_feedback)
       new_feedback[e.currentTarget.dataset.index].lookorun=true
-      console.log(app.globalData.path+'feedback/getInfo'+(e.currentTarget.dataset.index+1))
-      wx.request({
-        url:app.globalData.path+'feedback/getInfo'+(e.currentTarget.dataset.index+1), 
-        header: { 'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8' },
-        data: {
-            wechatid:wx.getStorageSync('openid')
-        },
-         method: 'POST',        
-         success: function (res) {
-              console.log("获得反馈成功");
-              console.log(res.data.data); 
-              new_feedback[e.currentTarget.dataset.index].feedback=res.data.data                 
-         }
-      })
       this.setData({
           my_feedback:new_feedback
       })
-
-      //this.onShow()
   },
     showfeedback(){
         if(this.data.my_feed_public==false){
@@ -143,25 +128,71 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow() {
-      // var new_feedback=this.data.my_feedback
-      // for(var i=1;i<=5;i++){
-      //   wx.request({
-      //     url:app.globalData.path+'feedback/getInfo'+i, 
-      //     header: { 'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8' },
-      //     data: {
-      //         wechatid:wx.getStorageSync('openid')
-      //     },
-      //      method: 'POST',        
-      //      success: function (res) {
-      //           console.log("获得反馈成功");
-      //           console.log(res.data.data); 
-      //           new_feedback[i-1].feedback=res.data.data                 
-      //      }
-      //   })
-      // }
-      // this.setData({
-      //   my_feedback:new_feedback
-      // })
+      var new_feedback=this.data.my_feedback
+      wx.request({
+        url:app.globalData.path+'feedback/getInfo'+(1), 
+        header: { 'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8' },
+        data: {
+            wechatid:wx.getStorageSync('openid')
+        },
+         method: 'POST',        
+         success: function (res) {
+            new_feedback[0].feedback=res.data.data
+            console.log(res.data.data)                 
+         }
+      })
+      wx.request({
+        url:app.globalData.path+'feedback/getInfo'+(2), 
+        header: { 'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8' },
+        data: {
+            wechatid:wx.getStorageSync('openid')
+        },
+         method: 'POST',        
+         success: function (res) {
+            new_feedback[1].feedback=res.data.data
+            console.log(res.data.data)                 
+         }
+      })
+      wx.request({
+        url:app.globalData.path+'feedback/getInfo'+(3), 
+        header: { 'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8' },
+        data: {
+            wechatid:wx.getStorageSync('openid')
+        },
+         method: 'POST',        
+         success: function (res) {
+            new_feedback[2].feedback=res.data.data
+            console.log(res.data.data)                 
+         }
+      })
+      wx.request({
+        url:app.globalData.path+'feedback/getInfo'+(4), 
+        header: { 'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8' },
+        data: {
+            wechatid:wx.getStorageSync('openid')
+        },
+         method: 'POST',        
+         success: function (res) {
+            new_feedback[3].feedback=res.data.data
+            console.log(res.data.data)                 
+         }
+      })
+      wx.request({
+        url:app.globalData.path+'feedback/getInfo'+(5), 
+        header: { 'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8' },
+        data: {
+            wechatid:wx.getStorageSync('openid')
+        },
+         method: 'POST',        
+         success: function (res) {
+            new_feedback[4].feedback=res.data.data
+            console.log(res.data.data)                 
+         }
+      })
+      console.log(new_feedback)
+      this.setData({
+      my_feedback:new_feedback
+    })
     },
   
     /**

@@ -29,12 +29,23 @@ Page({
       this.setData({
         current_font_size: e.detail.value
       })
+
     },
     update_bgcolor(e){
       this.setData({
         current_bg_color: e.detail.value
       })
-  
+      // wx.setNavigationBarColor({
+      //   frontColor: '#ffffff',
+      //   backgroundColor: '#ff0000',
+      // })
+      // wx.setBackgroundTextStyle({
+      //   textStyle: 'dark' // 下拉背景字体、loading 图的样式为dark
+      // })
+      wx.setBackgroundColor({
+        backgroundColor: '#ffffff', // 窗口的背景色为白色
+      })
+      console.log("black")
     },
     log_out(e){
       wx.setStorage({    //数据缓存方法

@@ -13,6 +13,7 @@ Page({
     question_type:["公共空间治理","村委会行政","土地权属","邻里问题","其他问题","XX问题"],
     current_question_type:0,
     question_content:"",
+    color:"white"
   },
   notice(e){
     wx.navigateTo({
@@ -114,6 +115,10 @@ Page({
               console.log(res.data);                
          }
       })
+    this.setData({
+      color:app.globalData.backgroundColor
+    })
+    console.log(this.data.color)
   },
 
   /**

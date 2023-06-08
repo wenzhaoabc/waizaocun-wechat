@@ -100,11 +100,11 @@ Page({
     //    }
     // })
     var amount=0
-    for(var i=0;i<app.globalData.notice.length;i++){
-        if(app.globalData.notice[i].State=='0'){
-            amount=amount+1
-        }
-    }
+    // for(var i=0;i<app.globalData.notice.length;i++){
+    //     if(app.globalData.notice[i].State=='0'){
+    //         amount=amount+1
+    //     }
+    // }
     this.setData({
         dot_amount:amount
     })

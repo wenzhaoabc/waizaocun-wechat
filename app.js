@@ -35,6 +35,7 @@ App({
     Custom: null,
     CustomBar: null,
     path:'http://localhost:5000/',
-    currentShareId:0
+    currentShareId:0,
+    backgroundColor:'black'
   }
 })

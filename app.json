@@ -1,3 +1,4 @@
+
 {
   "pages": [
     "pages/home/square/square",
@@ -20,6 +21,7 @@
     "pages/user/setting/setting",
     "pages/home/look_share/look_share",
     "pages/user/about/about"
+
   ],
   "window": {
     "backgroundTextStyle": "light",

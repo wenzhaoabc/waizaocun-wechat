@@ -14,25 +14,25 @@
 </view> -->
 
 <block wx:for="{{news}}" wx:key="index">
-<view class="cu-card dynamic">
-  <view class="cu-item shadow">
-    <view class="cu-item">
+<view class="cu-card dynamic grid">
+  <view class="cu-item shadow" style="margin-top: 20px;margin-left: 10px;margin-right: 10px;">
+    <view class="cu-item" >
       <view class="content shadow">
         <view class="cu-capsule radius">
-          <view class="cu-tag line-black">{{item.publishTime}}</view>
+          <view class="cu-tag line-black" style="border: 1px black solid">{{item.publishTime}}</view>
         </view>
       </view>   
     </view>
     <view class="text-content">
       {{item.content}}
     </view>
-    <view class="grid flex-sub padding-lr {{'col-1'}}">
+    <view class="grid flex-sub padding-lr {{'col-1'}}" style="margin-bottom: 10px;">
       <view class="bg-img only-img" style="background-image:url({{item.img}});">
       </view>
     </view>
-    <view class="text-gray text-sm text-right padding">
+    <!-- <view class="text-gray text-sm text-right padding">
       <text class="cuIcon-attentionfill margin-lr-xs"></text> 点击查看详情
-    </view>
+    </view> -->
   </view>
 </view>
 </block>

@@ -14,12 +14,12 @@
 </view> -->
 
 
-<view class="cu-bar bg-white search">
+<!-- <view class="cu-bar bg-white search">
   <view class="search-form round">
     <text class="cuIcon-search"></text>
     <input type="text" placeholder="搜索你感兴趣的内容" confirm-type="search" bindinput="searchIcon"></input>
   </view>
-</view>
+</view> -->
 <view class="grid col-2 margin-bottom text-center" wx:if="{{length!=0}}">
     <block wx:for="{{share}}"  wx:key="index" >
     <view style="padding: 10px;" class="solids shadow shadow-lg">

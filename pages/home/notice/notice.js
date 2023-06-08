@@ -39,8 +39,12 @@ Page({
          method: 'POST',
          
          success: function (res) {
-              console.log(res)              
+              console.log(res)         
          }
+      })
+
+      this.setData({
+        notice:new_notice
       })
     this.onShow()
 
