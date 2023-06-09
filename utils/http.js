@@ -8,11 +8,11 @@ const baseMock = "https://mock.mengxuegu.com/mock/646c4d749d552b3b3b17cc9f"
 const Token = app.globalData.token;
 
 function http(url, options) {
-  if (options.method == 'GET') {
-    baseURL = baseMock;
-  } else {
-    baseURL = 'http://47.103.223.106:5000'
-  }
+  // if (options.method == 'GET') {
+  //   baseURL = baseMock;
+  // } else {
+  //   baseURL = 'http://47.103.223.106:5000'
+  // }
   return new Promise((resolve, reject) => {
     wx.request({
       url: baseURL + url,

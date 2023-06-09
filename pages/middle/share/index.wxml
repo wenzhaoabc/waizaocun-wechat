@@ -13,7 +13,7 @@
         <view class="text-xxl margin-tb text-green">
             <!-- <text decode="{{true}}" bindtap="checkDetail">查看详情&nbsp;</text> -->
             <!-- <text decode="{{true}}" bindtap="shareDesign">分享到公共空间</text> -->
-            <button class="cu-btn text-xl round bg-green" bindtap="shareDesign">分享到公共空间</button>
+            <button class="cu-btn text-xl round bg-green" bindtap="shareDesign">返回主页面</button>
         </view>
     </view>
     <view>

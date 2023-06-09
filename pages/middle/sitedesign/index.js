@@ -65,39 +65,60 @@ Page({
    */
   onLoad(options) {
     // TODO
-    // const eventChannel = this.getOpenerEventChannel();
-    // eventChannel.on("data", (data) => {
-    //   console.log("首页传送数据 - 点位信息", data);
-    //   this.setData({
-    //     bgImg: data.images[0].imgPath
-    //   })
-    // });
-
-    this.setData({
-      bgImg: "https://s2.loli.net/2023/05/15/dy3BcA8JZpsbavO.png"
-    })
-
-    const { CustomBar, ScreenWidth } = app.globalData;
-    wx.getImageInfo({
-      src: this.data.bgImg,
-      success: res => {
-        console.log(res.width, res.height);
-        const iw = ScreenWidth * 0.95;
-        const ih = res.height / res.width * ScreenWidth * 0.95;
-        this.setData({
-          IMG_WIDTH: iw,
-          IMG_HEIGHE: ih,
-          CENTER_X: ScreenWidth / 2,
-          CENTER_Y: CustomBar + 45 + ih / 2,
-          IMG_TOP: CustomBar + 45,
-          SCREEN_WIDTH: ScreenWidth
-        });
-        console.log(this.data);
-        this.setData({
-          editMask: this.getNewMask()
-        })
-      }
+    const eventChannel = this.getOpenerEventChannel();
+    eventChannel.on("data", (data) => {
+      console.log("首页传送数据 - 点位信息", data);
+      this.setData({
+        bgImg: data.images[0].imgPath
+      })
+      const { CustomBar, ScreenWidth } = app.globalData;
+      wx.getImageInfo({
+        src: data.images[0].imgPath,
+        success: res => {
+          console.log(res.width, res.height);
+          const iw = ScreenWidth * 0.95;
+          const ih = res.height / res.width * ScreenWidth * 0.95;
+          this.setData({
+            IMG_WIDTH: iw,
+            IMG_HEIGHE: ih,
+            CENTER_X: ScreenWidth / 2,
+            CENTER_Y: CustomBar + 45 + ih / 2,
+            IMG_TOP: CustomBar + 45,
+            SCREEN_WIDTH: ScreenWidth
+          });
+          console.log("点位设计数据：", this.data);
+          this.setData({
+            editMask: this.getNewMask()
+          })
+        }
+      });
     });
+
+    // this.setData({
+    //   bgImg: "https://s2.loli.net/2023/05/15/dy3BcA8JZpsbavO.png"
+    // })
+
+    // const { CustomBar, ScreenWidth } = app.globalData;
+    // wx.getImageInfo({
+    //   src: this.data.bgImg,
+    //   success: res => {
+    //     console.log(res.width, res.height);
+    //     const iw = ScreenWidth * 0.95;
+    //     const ih = res.height / res.width * ScreenWidth * 0.95;
+    //     this.setData({
+    //       IMG_WIDTH: iw,
+    //       IMG_HEIGHE: ih,
+    //       CENTER_X: ScreenWidth / 2,
+    //       CENTER_Y: CustomBar + 45 + ih / 2,
+    //       IMG_TOP: CustomBar + 45,
+    //       SCREEN_WIDTH: ScreenWidth
+    //     });
+    //     console.log("点位设计数据：", this.data);
+    //     this.setData({
+    //       editMask: this.getNewMask()
+    //     })
+    //   }
+    // });
 
   },
 

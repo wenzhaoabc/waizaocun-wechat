@@ -48,7 +48,7 @@ App({
     // 系统信息
     ScreenWidth: null,
     // 自定义数据
-    path: 'http://daoxiangli.com:5000',
+    path: 'http://daoxiangli.com:5000/',
     currentShareId: 0
   }
 })

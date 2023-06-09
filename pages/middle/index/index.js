@@ -512,6 +512,15 @@ Page({
     })
   },
 
+  /**
+   * 跳转至热搜点位
+   */
+  gotoHotPage(){
+    wx.navigateTo({
+      url: '../hot/index',
+    })
+  },
+
   // 点击村舍跳转到three.js的测试界面
   onRouteToThree() {
     wx.navigateTo({

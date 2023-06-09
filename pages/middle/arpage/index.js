@@ -34,7 +34,7 @@ Page({
         height: height - CustomBar - 80,
         renderWidth: width * dpi,
         renderHeight: (height - CustomBar - 80) * dpi,
-        modelurl: data.model,
+        modelurl: data.model.model,
         siteInfo: data.siteInfo
       })
     })
@@ -46,7 +46,7 @@ Page({
     const child = this.selectComponent("#main-frame");
     // console.log("子组件this", child);
     child.scene.share.captureToLocalPath(
-      { fileType: "jpg", quality: 1 },
+      { fileType: "jpg", quality: 0.6 },
       (cacheUrl) => {
         console.log("创作完成，数据 - data", cacheUrl);
         wx.showLoading({
@@ -65,12 +65,22 @@ Page({
               url: '../savedraft/index',
               success: (res) => {
                 res.eventChannel.emit("data", {
-                  cacheUrl: cacheUrl,
+                  cacheUrl: imgUrl,
                   siteInfo: this.data.siteInfo,
                   imgUrl: imgUrl
                 })
               }
             })
+          },
+          fail: (err) => {
+            wx.hideLoading()
+            wx.showToast({
+              'icon': 'error',
+              title: '保存失败',
+            })
+          },
+          complete: (res) => {
+            console.log('上传文件调用失败', res);
           }
         })
       })
