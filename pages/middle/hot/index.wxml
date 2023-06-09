@@ -1,0 +1,26 @@
+<!--pages/middle/hot/index.wxml-->
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">热榜</view>
+</cu-custom>
+
+<view>
+  <t-cell 
+    wx:for="{{ sites }}"
+    wx:for-item="site"
+    wx:key="siteId"
+    title="{{ site.title }}" 
+    hover 
+    arrow
+    image="{{ site['images'][0].imgPath }}"
+  >
+    <view class="two-line" 
+      slot="description">{{ site.detail }}</view>
+    <t-badge
+      color="#f2ce2b"
+      count="{{ index+1 }}" 
+      offset="{{[-10, 0]}}" 
+      shape="ribbon" 
+      slot="note" />
+  </t-cell>
+</view>

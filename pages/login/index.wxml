@@ -1,46 +1,59 @@
 <cu-custom bgColor="bg-white" isBack="{{true}}">
   <view slot="content">外灶村</view>
 </cu-custom>
-
+<t-message id="t-message" />
 <view class="margin-xs">
   <view class="bg-white radius-lg" style="min-height: 90vh;">
     <view class="padding-tb padding-lr text-center">
       <text class="text-xxl text-black">手机号快捷登录</text>
     </view>
 
-    <view class="margin-lr padding">
-      <view class="padding-tb-sm">
-        <input placeholder="请输入手机号"></input>
-      </view>
-      <view class="flex justify-between padding-tb-sm">
-        <input placeholder="请输入验证码"></input>
-        <view class="text-gray">获取验证码</view>
-      </view>
-    </view>
+    <t-input
+      label="手机号" 
+      placeholder="输入手机号码" 
+      type="number" 
+      tips="{{phoneError ? '手机号输入不正确' : ''}}" 
+      bindchange="onPhoneInput" />
 
-    <view class="padding-tb-xxl padding-top padding-lr-xs">
-      <view class="flex flex-column margin-sm">
-        <button class="cu-btn xxl bg-gradual-pinknew round" bindtap="onLogin">登录</button>
-      </view>
-      <view class="padding-top text-center text-blue text-lg padding-bottom-xxl">
-        账号密码登录 | 登录遇到问题
-      </view>
-    </view>
+      <t-input
+        label="验证码"
+        placeholder="输入短信验证码"
+        type="number"
+        tips="{{codeError ? '验证码输入不正确' : ''}}" 
+        bindchange="onVerifyCodeInput"
+        >
+        <view slot="suffix" style="display: flex; align-items: center">
+          <view class="suffix--line"></view>
+          <view class="verify" bind:tap="onSendVerifyCode"> {{codeText}} </view>
+        </view>
+      </t-input>
 
-    <view class="padding-tb-xxl padding-top padding-lr-xs" style="margin-top: 20vh;">
-      <view class="padding-top text-center text-gray text-df">
-        ——— 社交账号直接登录 ———
-      </view>
-      <view class="padding text-center">
-        <view class="cu-avatar round margin-right bg-green"><text class="icon-wechat text-lg"></text></view>
-        <view class="cu-avatar round margin-right bg-cyan"><text class="icon-tencent-qq text-lg"></text></view>
-        <view class="cu-avatar round margin-right bg-red"><text class="icon-sina-weibo text-lg"></text></view>
-        <view class="cu-avatar round margin-right bg-black"><text class="icon-apple text-lg"></text></view>
-      </view>
-      <view class="padding-lr-xl text-center text-gray padding-top-sm">
-        未注册的手机号登录时将自动注册，且代表您已经同意 <text class="solids-bottom">用户协议</text> 和 <text class="solid-bottom">隐私政策</text>
+      
+
+      <view class="padding-tb-xxl padding-top padding-lr-xs">
+        <view class="flex flex-column margin-sm">
+          <button class="cu-btn xxl bg-gradual-pinknew round" bindtap="onLogin">登录</button>
+        </view>
+        <view class="padding-top text-center text-blue text-lg padding-bottom-xxl">
+          账号密码登录 | 登录遇到问题
+        </view>
       </view>
 
-    </view>
+      <view class="padding-tb-xxl padding-top padding-lr-xs" style="margin-top: 20vh;">
+        <view class="padding-top text-center text-gray text-df">
+          ——— 社交账号直接登录 ———
+        </view>
+        <view class="padding text-center">
+          <view class="cu-avatar round margin-right bg-green"><text class="icon-wechat text-lg"></text></view>
+          <view class="cu-avatar round margin-right bg-cyan"><text class="icon-tencent-qq text-lg"></text></view>
+          <view class="cu-avatar round margin-right bg-red"><text class="icon-sina-weibo text-lg"></text></view>
+          <view class="cu-avatar round margin-right bg-black"><text class="icon-apple text-lg"></text></view>
+        </view>
+        <view class="padding-lr-xl text-center text-gray padding-top-sm">
+          未注册的手机号登录时将自动注册，且代表您已经同意 <text class="solids-bottom">用户协议</text> 和 <text class="solid-bottom">隐私政策</text>
+        </view>
+
+      </view>
   </view>
 </view>
+

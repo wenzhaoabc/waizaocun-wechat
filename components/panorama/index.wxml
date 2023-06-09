@@ -1,0 +1,31 @@
+<!-- 展示全景图 -->
+<xr-scene id="xr-scene">
+  <xr-assets bind:progress="handleAssetsProgress" bind:loaded="handleAssetsLoaded">
+    <xr-asset-load 
+      type="texture" 
+      asset-id="fullview" 
+      src="{{url}}" />
+  </xr-assets>
+
+  <xr-mesh 
+    node-id="sphere" 
+    geometry="sphere"
+    position="0 0 0"
+    scale="16 16 -16"
+    uniforms="u_baseColorMap: fullview"
+  />
+  <xr-node node-id="lights">
+    <xr-light 
+      type="ambient" 
+      color="1 1 1" 
+      intensity="5"
+    />
+  </xr-node>
+  <xr-camera 
+    clear-color="0.4 0.8 0.6 1" 
+    position="0 0 8" 
+    camera-orbit-control
+    background="skybox"
+    target="sphere"
+  />
+</xr-scene>

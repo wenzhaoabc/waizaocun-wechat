@@ -1,0 +1,116 @@
+<!--pages/middle/sitedesign/index.wxml-->
+<cu-custom bgColor="bg-gradual-green" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">点位设计</view>
+</cu-custom>
+<!-- <view style="position: relative;overflow: auto;"> -->
+<view class="save-btn">
+  <t-button theme="primary" variant="text" bind:tap="handleClickSaveBtn">保存</t-button>
+</view>
+
+<view class="image-wrap">
+  <canvas 
+    type="2d" 
+    id="canvas-target" 
+    class="target-canvas"
+    style="height: {{IMG_HEIGHT}};"
+  />
+  <image 
+    class="src-img" 
+    src="{{ bgImg }}" 
+    mode="widthFix"
+    id="bimg"
+    bind:touchend="touchEndAll"
+    bind:touchstart="touchBimgStart"
+    catch:touchmove="touchMove"
+  />
+  <image 
+    wx:for="{{maskList}}" 
+    wx:for-item="mask" 
+    wx:key="id" 
+    src="{{mask.url}}" 
+    mode="scaleToFill"
+    data-maskid="{{mask.id}}"
+    class="{{ (editMask.id === mask.id)? 'mask-with-border mask':'mask'}}"
+    style="opacity: {{mask.alpha}};top: {{ mask.center.y - mask.size.height / 2 - IMG_TOP}}px;left: {{mask.center.x - mask.size.width / 2}}px;transform: rotate({{mask.rotate}}deg) scale({{mask.scale.width}},{{mask.scale.height}});"
+    id="mask{{mask.id}}"
+    catch:touchstart="touchStartAll"
+    catch:touchmove="touchMove"
+  />
+  <image 
+    src="../../../images/middle/rotate.png" 
+    mode="scaleToFill"
+    class="{{ (editMask.editing)? 'rotate' : 'rotate hide-handle' }}"
+    style="top:{{editMask.rotateCenter.y - IMG_TOP - 10}}px;left:{{editMask.rotateCenter.x - 10}}px;"
+    id="rotate"
+    catch:touchstart="touchStartAll"
+    catch:touchmove="touchMove"
+  />
+  <image 
+    src="../../../images/middle/shrink.png" 
+    mode="scaleToFill"
+    class="{{ (editMask.editing)? 'shrink' : 'shrink hide-handle' }}"
+    style="top:{{editMask.shrinkCenter.y - IMG_TOP - 10}}px;left:{{editMask.shrinkCenter.x - 10}}px;"
+    id="shrink"
+    catch:touchstart="touchStartAll"
+    catch:touchmove="touchMove"
+  />
+</view>
+
+<view wx:if="{{editMask.editing}}" class="opacity-slider" style="top: {{CENTER_Y + IMG_HEIGHE / 2 + 20}}px;">
+  <text class="opacity-slider-text">透明度</text>
+ 
+  <t-slider 
+    default-value="{{(editMask.alpha*100)}}" 
+    value="{{value}}" 
+    label="${value}" 
+    step="{{ 2 }}"
+    max="{{ 100 }}"
+    min="{{ 0 }}"
+    bind:change="handleSliderChange"
+  />
+</view>
+
+
+<view class="b">
+  <view wx:if="{{ bIndex == 1}}">
+    <t-grid wx:if="{{bshowType}}" t-class="b-type" column="{{0}}">
+      <t-grid-item t-class="b-type-item" t-class-image="b-type-img" image-props="{{ typeImgProp }}" wx:for="{{designType}}" wx:key="typeId" text="{{item.name}}" image="{{item.imgPath}}" data-type="{{item.typeId}}" bind:tap="handleClickType">
+      </t-grid-item>
+    </t-grid>
+    <view wx:else>
+      <t-button class="b-rollback-btn" icon="rollback" variant="text" bind:tap="handleRollback"></t-button>
+      <t-grid t-class="b-type" column="{{0}}">
+        <t-grid-item t-class="b-type-item" t-class-image="b-type-img" image-props="{{ typeImgProp }}" wx:for="{{designItem}}" wx:key="itemId" text="{{item.name}}" image="{{item.imgPath}}" data-item="{{item.itemId}}" bind:tap="handleClickItem">
+        </t-grid-item>
+      </t-grid>
+    </view>
+  </view>
+  <view wx:if="{{ bIndex == 2 }}">
+    <t-grid t-class="b-type" column="{{0}}">
+      <t-grid-item t-class="b-type-item" t-class-image="b-type-img" image-props="{{ typeImgProp }}" wx:for="{{arModelList}}" wx:key="id" text="{{item.name}}" image="{{item.imgPath}}" data-id="{{ item.id }}" bind:tap="handleARModelClick">
+      </t-grid-item>
+    </t-grid>
+  </view>
+
+  <view wx:if="{{ bIndex == 3 }}">
+    <t-upload
+      mediaType="{{['image']}}"
+      max="{{5}}"
+      files="{{fileList}}"
+      image-props="{{ imageProps }}"
+      config="{{ uploadImgConfig }}"
+      bind:add="handleSelfAdd"
+      bind:remove="handleSelfRemove"
+      bind:click="handleSelfEdit">
+    </t-upload>
+  </view>
+
+  <t-row style="width: 100%;">
+    <t-col span="8" t-class="b-selection" class="{{ bIndex === 1 ? 'b-selection-selected' : '' }}" data-index="1" bind:tap="handleClickSelction">基础组件</t-col>
+    <t-col span="8" t-class="b-selection" class="{{ bIndex === 2 ? 'b-selection-selected' : '' }}" data-index="2" bind:tap="handleClickSelction">AR创作</t-col>
+    <t-col span="8" t-class="b-selection" class="{{ bIndex === 3 ? 'b-selection-selected' : '' }}" data-index="3" bind:tap="handleClickSelction">自定义</t-col>
+  </t-row>
+
+</view>
+<!-- </view> -->

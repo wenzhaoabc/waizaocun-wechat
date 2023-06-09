@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "panorama": "../../../components/panorama/index",
+    "t-fab": "tdesign-miniprogram/fab/fab",
+    "t-icon": "tdesign-miniprogram/icon/icon"
+  }
+}

@@ -1,0 +1,22 @@
+/* pages/middle/feedbackdetail/index.wxss */
+.item-title{
+  font-size: larger;
+  color: #7a7374;
+  margin: 20rpx;
+}
+
+.item-content{
+  background-color: #fff;
+  padding: 20rpx;
+  font-size: medium;
+}
+
+.site-map{
+  width: 100%;
+  height: 300rpx;
+}
+
+.item-image{
+  width: 100%;
+  margin-bottom: 30rpx;
+}

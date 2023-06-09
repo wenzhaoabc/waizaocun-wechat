@@ -20,8 +20,13 @@
     "pages/home/share/share",
     "pages/user/setting/setting",
     "pages/home/look_share/look_share",
-    "pages/user/about/about"
-
+    "pages/user/about/about",
+    "pages/middle/fullview/index",
+    "pages/middle/sitefeedback/index",
+    "pages/middle/myfeedback/index",
+    "pages/middle/feedbackdetail/index",
+    "pages/middle/hot/index",
+    "pages/middle/sitedesign/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -31,7 +36,9 @@
     "navigationStyle": "custom"
   },
   "usingComponents": {
-    "cu-custom": "colorui/components/cu-custom/cu-custom"
+    "cu-custom": "colorui/components/cu-custom/cu-custom",
+    "t-message": "tdesign-miniprogram/message/message",
+    "t-icon": "tdesign-miniprogram/icon/icon"
   },
   "sitemapLocation": "sitemap.json",
   "lazyCodeLoading": "requiredComponents",

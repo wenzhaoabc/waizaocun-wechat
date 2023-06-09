@@ -1,0 +1,128 @@
+/* pages/middle/sitedesign/index.wxss */
+.save-btn {
+  box-sizing: border-box;
+  text-align: right;
+  height: 45px;
+}
+
+.image-wrap {
+  /* overflow: auto; */
+  position: absolute;
+  width: 100%;
+  height: max-content;
+}
+
+.target-canvas {
+  visibility: hidden;
+  position: absolute;
+  width: 95%;
+  left: 0;
+  right: 0;
+  /* top: 200px; */
+  margin: auto;
+}
+
+.src-img {
+  position: absolute;
+  width: 95%;
+  left: 0;
+  right: 0;
+  /* top: 0;
+  bottom: 0; */
+  /* margin: 20rpx 10rpx; */
+  margin: auto;
+}
+
+.b {
+  position: absolute;
+  bottom: 10vh;
+  z-index: 1001;
+  width: 100%;
+}
+
+.b-selection {
+  /* position: absolute; */
+  text-align: center;
+  font-size: x-large;
+  margin-top: 30px;
+}
+
+.b-selection-selected {
+  color: burlywood;
+}
+
+.b-type {
+  display: block;
+  background-color: rgba(255, 255, 255, 0);
+}
+
+.b-type-item {
+  background-color: rgba(204, 204, 204, 0);
+}
+
+.b-type-view {
+  width: 100px;
+  display: inline-block;
+  text-align: center;
+}
+
+.b-type-scroll {
+  /* height: 110px; */
+  white-space: nowrap;
+}
+
+.b-type-img {
+  width: 80px;
+  height: 80px;
+}
+
+.b-type-name {
+  margin-top: 20rpx;
+}
+
+.b-type-name-tap {
+  color: rgb(50, 163, 238);
+}
+
+.b-rollback-btn {
+  margin-left: 10rpx;
+  margin-bottom: 10rpx;
+}
+
+.mask {
+  height: 100px;
+  width: 100px;
+  box-sizing: border-box;
+  position: absolute;
+  border: 1px dashed rgba(255, 255, 255, 0.0);
+}
+
+.mask-with-border {
+  border: dashed 1px white !important;
+}
+
+.rotate,
+.shrink {
+  position: absolute;
+  width: 40rpx;
+  height: 40rpx;
+  background: #666;
+  border-radius: 50%;
+  /* // z-index: 1000; */
+}
+
+.hide-handle {
+  display: none;
+}
+
+.opacity-slider{
+  position:absolute;
+  width: 100%;
+
+}
+
+.opacity-slider-text{
+  /* margin: 0 20rpx; */
+  margin-left: 20rpx;
+  font-size: medium;
+}

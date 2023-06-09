@@ -1,0 +1,20 @@
+/* pages/middle/myfeedback/index.wxss */
+.feedback-item {
+  width: 100%;
+}
+
+.item-description {
+  white-space: nowrap;
+  /* 禁止换行 */
+  overflow: hidden;
+  /* 隐藏溢出的内容 */
+  text-overflow: ellipsis;
+  /* 使用省略号代替溢出的内容 */
+  /* width: 100%; */
+  width: 400rpx;
+}
+
+.item-create-time{
+  font-size: small;
+}
+

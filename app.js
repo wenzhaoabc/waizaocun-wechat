@@ -7,25 +7,35 @@ App({
         let custom = wx.getMenuButtonBoundingClientRect();
         this.globalData.Custom = custom;
         this.globalData.CustomBar = custom.bottom + custom.top - e.statusBarHeight;
+        this.globalData.ScreenWidth = e.windowWidth;
       }
     })
 
     wx.getStorage({
-      key: 'token',
+      key: 'daoxiangli-token',
       success: (res) => {
         this.globalData.token = res.data
       },
       fail: (err) => {
+        // wx.navigateToMiniProgram();
+        wx.navigateTo({
+          url: 'pages/login/index',
+          // url: 'pages/middle/sitedesign/index'
+          // url: 'pages/middle/savedraft/index'
+          // url: 'pages/middle/sitefeedback/index'
+          // url: 'pages/middle/myfeedback/index'
+          // url:'pages/middle/feedbackdetail/index'
+          // url: 'pages/middle/hot/index',
+          success: (res) => {
+            res.eventChannel.emit("data", {})
+          }
+        });
         wx.showToast({
           title: '请重新登录',
+          icon: 'error'
         });
-        wx.navigateTo({
-          url: './pages/login/index',
-        })
       }
     })
-
-
   },
   globalData: {
     userInfo: null,
@@ -34,8 +44,11 @@ App({
     StatusBar: null,
     Custom: null,
     CustomBar: null,
-    path:'http://localhost:5000/',
-    currentShareId:0,
-    backgroundColor:'black'
+    backgroundColor: 'black',
+    // 系统信息
+    ScreenWidth: null,
+    // 自定义数据
+    path: 'http://daoxiangli.com:5000',
+    currentShareId: 0
   }
 })
