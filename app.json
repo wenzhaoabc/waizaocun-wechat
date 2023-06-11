@@ -1,4 +1,3 @@
-
 {
   "pages": [
     "pages/home/square/square",
@@ -26,7 +25,8 @@
     "pages/middle/myfeedback/index",
     "pages/middle/feedbackdetail/index",
     "pages/middle/hot/index",
-    "pages/middle/sitedesign/index"
+    "pages/middle/sitedesign/index",
+    "pages/middle/vote/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

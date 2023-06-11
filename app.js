@@ -14,12 +14,16 @@ App({
     wx.getStorage({
       key: 'daoxiangli-token',
       success: (res) => {
-        this.globalData.token = res.data
+        this.globalData.token = res.data;
+        // wx.navigateTo({
+        //   url: 'pages/middle/vote/index',
+        // })
       },
       fail: (err) => {
         // wx.navigateToMiniProgram();
         wx.navigateTo({
           url: 'pages/login/index',
+          // url: 'pages/middle/vote/inde',
           // url: 'pages/middle/sitedesign/index'
           // url: 'pages/middle/savedraft/index'
           // url: 'pages/middle/sitefeedback/index'

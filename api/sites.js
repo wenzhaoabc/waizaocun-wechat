@@ -31,5 +31,17 @@ module.exports = {
 
   addMySiteDesign(siteDesign) {
     return http.post('/design/site-add', siteDesign, { noLogin: false })
-  }
+  },
+
+  getInProcessVote(cId = 1) {
+    return http.get('/vote/in-process', { cId: cId }, { noLogin: false })
+  },
+
+  getAllVotes(cId = 1) {
+    return http.get('/vote/all', { cId: cId }, { noLogin: false })
+  },
+
+  voteDesign(voteId) {
+    return http.post('/vote/vote', voteId.toString(), { noLogin: false })
+  },
 }

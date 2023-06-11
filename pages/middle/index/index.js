@@ -526,5 +526,12 @@ Page({
     wx.navigateTo({
       url: '/pages/threeTest/threeTest',
     })
-  }
+  },
+
+  // 投票点位
+  gotoVotePage(){
+    wx.navigateTo({
+      url: '../vote/index',
+    })
+  },
 })

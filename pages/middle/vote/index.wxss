@@ -1,0 +1,36 @@
+/* pages/middle/vote/index.wxss */
+.custom-tabs {
+  margin-bottom: 32rpx;
+}
+
+.site-title{
+  font-size:x-large;
+  margin-left: 20rpx;
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+  font-weight: bold;
+}
+
+.vote-img{
+  /* margin: 10rpx 0; */
+  margin-left: 100rpx;
+  margin-bottom: 20rpx;
+  text-align: center;
+  width: 200rpx;
+}
+
+.vote-num{
+  margin-left: 100rpx;
+  margin-top: 40rpx;
+}
+
+.vote-all-item{
+  margin: 20rpx;
+  border-bottom: 1px solid grey;
+}
+
+.vote-all-image{
+  width: 200rpx;
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+}

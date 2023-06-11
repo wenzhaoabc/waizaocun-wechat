@@ -109,22 +109,28 @@
   />
 
   <t-row wx:if="{{ showActionBtn }}" gutter="20">
-    <t-col span="8" class="action-item">
+    <t-col span="6" class="action-item">
       <view animation="{{ aniRightOut }}" hover-class="action-item-hover" bind:tap="gotoHotPage">
         <image src="../../../images/middle/hot_fill.png" mode="图标" class="action-img" />
-        <view class="action-text">热榜</view>
+        <view class="action-text">热门点位</view>
       </view>
     </t-col>
-    <t-col span="8" class="action-item">
+    <t-col span="6" class="action-item">
+      <view animation="{{ aniRightOut }}" hover-class="action-item-hover" bind:tap="gotoVotePage">
+        <image src="../../../images/middle/vote.png" mode="图标" class="action-img" />
+        <view class="action-text">点位投票</view>
+      </view>
+    </t-col>
+    <t-col span="6" class="action-item">
       <view animation="{{ aniRightOut }}" hover-class="action-item-hover" bind:tap="handleMyFeedbackHistory">
         <image src="../../../images/middle/cunshe.png" mode="图标" class="action-img" />
-        <view class="action-text">我的</view>
+        <view class="action-text">我的反馈</view>
       </view>
     </t-col>
-    <t-col span="8" class="action-item">
+    <t-col span="6" class="action-item">
       <view animation="{{ aniRightOut }}" hover-class="action-item-hover" bind:tap="handleAddSite">
         <image src="../../../images/middle/fankui.png" mode="图标" class="action-img" />
-        <view class="action-text">新建</view>
+        <view class="action-text">反馈点位</view>
       </view>
     </t-col>
   </t-row>
