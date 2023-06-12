@@ -20,9 +20,6 @@
     <input type="text" placeholder="搜索你感兴趣的内容" confirm-type="search" bindinput="searchIcon"></input>
   </view>
 </view> -->
-<view wx:if="{{!show}}" style="width:100%;font-size:large;text-align: center;">
-  抱歉，该部分暂不对游客开放
-</view>
 <view class="grid col-2 margin-bottom text-center" wx:if="{{length!=0&&show}}">
     <block wx:for="{{share}}"  wx:key="index" >
     <view style="padding: 10px;" class="solids shadow shadow-lg">
@@ -57,6 +54,9 @@
 </view>
 <view wx:if="{{length==0&&show}}">
 暂无人分享哦，快来分享吧~
+</view>
+<view wx:if="{{!show}}" style="width:100%;font-size:large;text-align: center;">
+  抱歉，该部分暂不对游客开放
 </view>
 <view class="cu-item" bindtap="share_time" wx:if="{{show}}">
   <text id="share_add" class="cuIcon-roundadd lg text-gray"></text>

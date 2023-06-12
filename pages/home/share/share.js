@@ -60,8 +60,8 @@ Page({
         share1= this.data.share
         console.log("index:"+e.currentTarget.dataset.index)
         if(!share1[e.currentTarget.dataset.index].isLove){
-          share1[e.currentTarget.dataset.index].isLove=false
-          share1[e.currentTarget.dataset.index].loveNum=share1[e.currentTarget.dataset.index].loveNum-1
+          share1[e.currentTarget.dataset.index].isLove=true
+          share1[e.currentTarget.dataset.index].loveNum=share1[e.currentTarget.dataset.index].loveNum+1
         wx.request({
           url:app.globalData.path+'share/love', 
           header: { 'Content-Type': 'application/json;charset=utf-8' },
@@ -76,8 +76,8 @@ Page({
            }
         })
         }else{
-          share1[e.currentTarget.dataset.index].is_love=true
-          share1[e.currentTarget.dataset.index].love_num=share1[e.currentTarget.dataset.index].love_num+1
+          share1[e.currentTarget.dataset.index].is_love=false
+          share1[e.currentTarget.dataset.index].love_num=share1[e.currentTarget.dataset.index].love_num-1
         wx.request({
             url:app.globalData.path+'share/dislove', 
             header: { 'Content-Type': 'application/json;charset=utf-8' },
@@ -92,6 +92,11 @@ Page({
              }
           })
         }
+
+
+        this.setData({
+          share:share1
+        })
         this.onShow()
     },
     return(e){

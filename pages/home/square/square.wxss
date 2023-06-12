@@ -11,13 +11,11 @@
 }
 .event{
   top: 100px; 
-  left:50px;
   background: ivory;
   position: absolute;
   text-align: center;
   border: 3rpx solid #faca82;
   border-radius: 10rpx;
-  height: 250px;
   /* padding: 10rpx; */
 }
 .l{

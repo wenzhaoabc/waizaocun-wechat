@@ -40,7 +40,7 @@
   </view>
   <view class="cu-tabbar-height"></view>
 </scroll-view>
-<view class='event' wx:if="{{question}}" style="width:275px;left:22.5px">
+<view class='event' wx:if="{{question}}" style="width:70%;left:15% ;height: 300px;">
     <view class="text-center title margin-sm">
       问题反馈
     </view>
@@ -58,10 +58,10 @@
     <view class="cu-form-group">
 		  <textarea placeholder="点击编辑我的问题" bindinput="get_name"></textarea>
 	  </view>
-    <button class="cu-btn l" role="button"  style="width:80px" bindtap="yes">
+    <button class="cu-btn l" role="button"  style="width:30%;left:10%;bottom: 20px;" bindtap="yes">
       确认
     </button>
-    <button class="cu-btn r" role="button"  style="width:80px" bindtap="no">
+    <button class="cu-btn r" role="button"  style="width:30%;right:10%;bottom: 20px;" bindtap="no">
               取消
     </button>
 </view>

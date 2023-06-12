@@ -48,21 +48,29 @@ Page({
       })
     },
     ChooseImage() {
-      wx.chooseImage({
+      var that=this
+      wx.chooseMedia({
         count: 100, //默认9
+        mediaType: ['image'],
         sizeType: ['original', 'compressed'], //可以指定是原图还是压缩图，默认二者都有
         sourceType: ['album'], //从相册选择
         success: (res) => {
-          if (this.data.imgList.length != 0) {
-            this.setData({
-              imgList: this.data.imgList.concat(res.tempFilePaths)
-            })
-          } else {
-            this.setData({
-              imgList: res.tempFilePaths
-            })
+          for(var i=0;i<res.tempFiles.length;i++){
+            console.log(res.tempFiles[i].tempFilePath)
+            if (that.data.imgList.length != 0) {
+              var imgs=that.data.imgList             
+              imgs.push(res.tempFiles[i].tempFilePath)
+              that.setData({
+                imgList: imgs
+              })
+            } else {
+              that.setData({
+                imgList:[res.tempFiles[i].tempFilePath]
+              })
+            }
           }
-        }
+          
+        } 
       });
     },
     ViewImage(e) {
