@@ -108,7 +108,7 @@ Page({
               console.log("添加分享信息");
               console.log(res.data); 
               wx.showModal({
-                content:"发布成功",
+                content:"分享成功，请等待审核",
                 showCancel: false,
                 confirmText: '确定',
               })               

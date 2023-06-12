@@ -41,13 +41,20 @@ Page({
     }
     var that=this
     console.log("wechatId:"+wx.getStorageSync('openid')+"\ntype:"+that.data.question_type[that.data.current_question_type]+"\ncontent:"+that.data.question_content)
+    var userType=''
+    if(wx.getStorageSync('openid')=='visit'){
+      userType='游客'
+    }else{
+      userType='村民'
+    }
     wx.request({
         url:app.globalData.path+'feedback/addFeedback', 
         header: { 'Content-Type': 'application/json;charset=utf-8' },
         data: {
             wechatId:wx.getStorageSync('openid'),
             type:that.data.question_type[that.data.current_question_type],
-            content:that.data.question_content,          
+            content:that.data.question_content, 
+            userType:userType         
         },
          method: 'POST',
          
@@ -84,7 +91,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-
+    if(wx.getStorageSync('openid')==null||wx.getStorageSync('openid')==''){
+      wx.setStorage({
+        key: 'openid',
+        data: 'visit'
+      })
+    }
   },
 
   /**

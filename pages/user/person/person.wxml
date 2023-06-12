@@ -5,7 +5,7 @@
     <view wx:if="{{nickName}}">
       {{nickName}}
     </view>
-    <view wx:else>尚未授权登录</view>
+    <view wx:else bindtap="login">尚未登录,点击登录</view>
   </view>
   <view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg radius">
     <view class="cu-item arrow">

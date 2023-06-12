@@ -46,6 +46,19 @@ Page({
             key: 'daoxiangli-token',
             data: data.token
           })
+          console.log(data.userInfo)
+          wx.setStorage({
+            key: 'openid',
+            data: data.userInfo.wechatId
+          })
+          wx.setStorage({
+            key: 'nickName',
+            data: data.userInfo.userName
+          })
+          wx.setStorage({
+            key: 'avatarUrl',
+            data: data.userInfo.avatar
+          })
           wx.showToast({
             title: '登录成功',
           })

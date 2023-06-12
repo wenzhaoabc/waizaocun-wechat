@@ -34,12 +34,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // let pages = getCurrentPages();
-    // let currPages = pages[pages.length-2]//当前页面
-    // console.log(currPages.data.dot_amount)
-	  //   this.setData({
-	  //     dot_amount:currPages.data.dot_amount
-	  //   })
+    if(wx.getStorageSync('openid')==null||wx.getStorageSync('openid')==''){
+      wx.setStorage({
+        key: 'openid',
+        data: 'visit'
+      })
+    }
     
     this.setData({
       nickName:wx.getStorageSync('nickName'),
@@ -144,5 +144,10 @@ Page({
    */
   onShareAppMessage() {
 
+  },
+  login(){
+    wx.navigateTo({
+      url: '../../login/index'
+    })
   }
 })

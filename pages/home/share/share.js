@@ -35,6 +35,7 @@ Page({
     //   ],
     share:[],
     length:0,
+    show:false,
     },
   
     /**
@@ -121,6 +122,15 @@ Page({
      */
     onShow() {
       var that=this
+      if(wx.getStorageSync('openid')=='visit'){
+        this.setData({
+          show:false
+        })
+      }else{
+        this.setData({
+          show:true
+        })
+      }
       wx.request({
         url:app.globalData.path+'share/getShares', 
         header: { 'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8' },

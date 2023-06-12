@@ -8,6 +8,7 @@ Page({
   data: {
     info_yes:false,
     notice:[],
+    show:false,
   },
 
   /**
@@ -60,6 +61,15 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow() {
+    if(wx.getStorageSync('openid')=='visit'){
+      this.setData({
+        show:false
+      })
+    }else{
+      this.setData({
+        show:true
+      })
+    }
       var that=this
       console.log(app.globalData.path+'notice/getUser')
       wx.request({

@@ -15,8 +15,10 @@
 
 
 
-
-<view class="cu-timeline">
+<view wx:if="{{!show}}" style="width:100%;font-size:large;text-align: center;">
+  游客不能查看公告
+</view>
+<view class="cu-timeline" wx:if="{{show}}">
   <block wx:for="{{notice}}"  wx:key="index" >
     <view class="cu-item text-green">
     <view class="bg-gradual-green content shadow">
