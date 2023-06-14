@@ -1,7 +1,7 @@
 var app = getApp()
 
-// let baseURL = 'http://47.103.223.106:5000'
-const baseURL = 'http://127.0.0.1:5000'
+let baseURL = 'http://47.103.223.106:5000'
+// const baseURL = 'http://127.0.0.1:5000'
 // const baseURL = 'http://100.80.86.3:5000'
 // const baseURL = 'https://192.168.77.70:5001'
 const baseMock = "https://mock.mengxuegu.com/mock/646c4d749d552b3b3b17cc9f"
