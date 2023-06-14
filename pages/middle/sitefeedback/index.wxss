@@ -27,3 +27,22 @@
 .submit{
   margin: 0 32rpx;
 }
+
+.item-title{
+  /* font-size: larger; */
+  /* color: #7a7374; */
+  padding: 20rpx;
+  background-color: #fff;
+  padding-bottom: 5rpx;
+}
+
+.item-content{
+  background-color: #fff;
+  padding: 20rpx;
+  font-size: medium;
+}
+
+.site-map{
+  width: 100%;
+  height: 300rpx;
+}

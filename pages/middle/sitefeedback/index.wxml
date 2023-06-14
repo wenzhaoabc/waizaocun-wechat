@@ -24,6 +24,20 @@
     disableDefaultPadding="{{true}}" />
 </view>
 
+<view class="item-title">反馈地点</view>
+
+<view class="item-content">
+  <map class="site-map" 
+    longitude="{{ lon }}" 
+    latitude="{{ lat }}"
+    show-location="{{ true }}"
+    bind:tap="changeCurrentLoaction"
+    markers="{{mapMarkers}}"
+  />
+
+  <view>经度 : {{lon}} , 维度 : {{lat}}</view>
+</view>
+
 <view class="upload">
   <view class="upload-text">上传图片</view>
   <t-upload

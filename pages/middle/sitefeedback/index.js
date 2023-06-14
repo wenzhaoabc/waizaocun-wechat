@@ -30,7 +30,16 @@ Page({
     },
     submitBtn: {
       text: '提交',
-    }
+    },
+    lat: 0,
+    lon: 0,
+    mapMarkers: [
+      {
+        id: 1,
+        latitude: 121,
+        longitude: 30
+      }
+    ]
   },
 
   handleAdd(e) {
@@ -133,8 +142,8 @@ Page({
       success: (res) => {
         const reqData = {
           title, content,
-          siteLatitude: res.latitude,
-          siteLongitude: res.longitude,
+          siteLatitude: this.data.lat,
+          siteLongitude: this.data.lon,
           imgList
         }
         api.submitFeedBack(reqData).then(() => {
@@ -165,7 +174,25 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
+    wx.getLocation({
+      success: res => {
+        this.setData({
+          lat: res.latitude,
+          lon: res.longitude,
+          mapMarkers: [{ id: 1, latitude: res.latitude, longitude: res.longitude, iconPath: '../../../images/middle/Marker1_Activated@3x.png' }]
+        })
+      }
+    })
+  },
 
+  changeCurrentLoaction(e) {
+    console.log(e);
+    const { latitude, longitude } = e.detail;
+    this.setData({
+      lat: Number(latitude.toFixed(6)),
+      lon: Number(longitude.toFixed(6)),
+      mapMarkers: [{ id: 1, latitude: Number(latitude.toFixed(6)), longitude: Number(longitude.toFixed(6)), iconPath: '../../../images/middle/Marker1_Activated@3x.png' }]
+    })
   },
 
   /**

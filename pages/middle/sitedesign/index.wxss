@@ -31,6 +31,7 @@
   bottom: 0; */
   /* margin: 20rpx 10rpx; */
   margin: auto;
+  max-height: 400rpx;
 }
 
 .b {
