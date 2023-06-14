@@ -9,6 +9,8 @@ Page({
     info_yes:false,
     notice:[],
     show:false,
+    content:'<div class="div_class" style="line-height: 60px; color: red;">HelloWorld!</div>',
+    html: '<div class="div_class" style="line-height: 60px; color: red;">Hello&nbsp;World!</div>',
   },
 
   /**
@@ -57,6 +59,12 @@ Page({
 
   },
 
+  // onShareAppMessage() {
+  //   return {
+  //     title: 'rich-text',
+  //     path: 'pages/home/notice/notice'
+  //   }
+  // },
   /**
    * 生命周期函数--监听页面显示
    */

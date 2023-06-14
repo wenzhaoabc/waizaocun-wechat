@@ -97,31 +97,47 @@ Page({
     },
     submit(e){
       var that=this
+      var imgs=[]
+      for(var i=0;i<this.data.imgList.length;i++){
+        wx.uploadFile({
+          filePath: that.data.imgList[i],
+          name: 'file',
+          url: app.globalData.path+'file/upload-single',
 
-      //请求添加分享信息
-      wx.request({
-        url:app.globalData.path+'share/addShare', 
-        header: { 'Content-Type': 'application/json;charset=utf-8' },
-        data: {
-          img:this.data.imgList,
-          content:that.data.content,
-          place:that.data.location,
-          // publisherId:wx.getStorageSync('openid'),
-          // publisherType:"村民"
-          userName:wx.getStorageSync('openid'),
-          userImg:"村民"
-        },
-         method: 'POST',        
-         success: function (res) {
-              console.log("添加分享信息");
-              console.log(res.data); 
-              wx.showModal({
-                content:"分享成功，请等待审核",
-                showCancel: false,
-                confirmText: '确定',
-              })               
-         }
-      })
+          success:(res) => {
+            console.log(res)
+            console.log(JSON.parse(res.data).data.fileUrl)
+            imgs.push(JSON.parse(res.data).data.fileUrl)
+            wx.request({
+              url:app.globalData.path+'share/addShare', 
+              header: { 'Content-Type': 'application/json;charset=utf-8' },
+              data: {
+                img:imgs,
+                content:that.data.content,
+                place:that.data.location,
+                // publisherId:wx.getStorageSync('openid'),
+                // publisherType:"村民"
+                userName:wx.getStorageSync('openid'),
+                userImg:"村民"
+              },
+               method: 'POST',        
+               success: function (res) {
+                    console.log("添加分享信息");
+                    console.log(res.data); 
+                    wx.showModal({
+                      content:"分享成功，请等待审核",
+                      showCancel: false,
+                      confirmText: '确定',
+                    })               
+               }
+            })
+          }
+        })
+      }
+      console.log("imgs")
+      console.log(imgs)
+      //恢复
+      
       wx.navigateBack({
         delta: 1 //返回上一级页面
       })
